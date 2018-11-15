@@ -34,5 +34,7 @@ $ df
 Start from root directory and issue:
 $ sudo du -sh *
 
+Another good place to start is the /var directory (if this is a Confluence/JIRA server)
+
 Change into suspect directory and repeat command until you find source of large files.
 </pre>

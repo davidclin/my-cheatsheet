@@ -38,3 +38,12 @@ Another good place to start is the /var directory (if this is a Confluence/JIRA 
 
 Change into suspect directory and repeat command until you find source of large files.
 </pre>
+
+# How to truncate large log file
+<pre>
+# Make sure to backup file 
+$ aws s3 cp filename.txt s3://bucketname
+
+#Trunkcate file
+$ truncate -s 0 myfile.txt
+</pre>

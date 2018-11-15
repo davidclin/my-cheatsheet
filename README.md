@@ -25,3 +25,14 @@ Try running `sudo chown -R david:david /home/david/.local`. This should reset th
 Also, make sure you don't run pip with `sudo` or else it will probably change ownership back to `root`. 
 If everything's going into `.local`, you can just run it as your account.
 </pre>
+
+# How to find large files
+<pre>
+See disk utilization
+$ df
+
+Start from root directory and issue:
+$ sudo du -sh *
+
+Change into suspect directory and repeat command until you find source of large files.
+</pre>

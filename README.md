@@ -47,3 +47,8 @@ $ aws s3 cp filename.txt s3://bucketname
 #Trunkcate file
 $ truncate -s 0 myfile.txt
 </pre>
+
+# Common reasons for disk utilization on Confluence/JIRA exceeding 75%
+1) /var/atlassian/application-data/confluence/backups  (local backups enabled - default behavior unless manually disabled)
+2) /opt/atlassian/confluence/logs/catalina.out         (file not rotated regularly)
+ 

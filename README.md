@@ -76,3 +76,7 @@ truncate -s0 /opt/atlassian/confluence/logs/catalina.out
 1) /var/atlassian/application-data/confluence/backups  (local backups enabled - default behavior unless manually disabled)
 2) /opt/atlassian/confluence/logs/catalina.out         (file not rotated regularly)
  
+# How to resize EC2 EBS volume
+From the EC2 management console, select EBS volume and resize volume
+Once the state updates to "in use - optimizing' ssh to EC2 instance to expand the mounted filesystem
+Issue 'resize2fs'

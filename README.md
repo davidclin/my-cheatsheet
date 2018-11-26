@@ -48,24 +48,27 @@ $ aws s3 cp filename.txt s3://bucketname
 $ truncate -s 0 myfile.txt
 </pre>
 
+# Truncate script
 <pre>
-Simple shell script:
-
 #!/usr/bin/env bash
 
-set -euo pipefail
+instanceid=`curl http://169.254.169.254/latest/meta-data/instance-id`
+today=`date '+%Y-%m-%d-'`;
+
 PATH=$PATH:/usr/local/bin
 
-{
+echo "Dumping catalina.out to S3..."
+aws s3 cp /opt/atlassian/confluence/logs/catalina.out s3://agent450b/catalina_logs/$today$instanceid-catalina-backup.log
 
-echo Backup catalina.out to S3 bucket
-echo "Dumping catalina.out to s3://agent450b/catlina_logs"
-aws s3 cp /opt/atlassian/confluence/logs/catalina.out s3://agent450b/catalina_logs/> /dev/null && \
-truncate -s 0 /opt/atlassian/confluence/logs/catalina.out
 
-echo 'Dump complete!'
+echo "Truncating /var/log/backup.log"
+truncate -s0 /opt/atlassian/confluence/logs/catalina.out
 
-}
+</pre>
+
+# Cron for truncation script
+<pre>
+0 7 1 * * /usr/local/bin/truncate_backuplog.sh
 </pre>
 
 

@@ -48,6 +48,27 @@ $ aws s3 cp filename.txt s3://bucketname
 $ truncate -s 0 myfile.txt
 </pre>
 
+<pre>
+Simple shell script:
+
+#!/usr/bin/env bash
+
+set -euo pipefail
+PATH=$PATH:/usr/local/bin
+
+{
+
+echo Backup catalina.out to S3 bucket
+echo "Dumping catalina.out to s3://agent450b/catlina_logs"
+aws s3 cp /opt/atlassian/confluence/logs/catalina.out s3://agent450b/catalina_logs/> /dev/null && \
+truncate -s 0 /opt/atlassian/confluence/logs/catalina.out
+
+echo 'Dump complete!'
+
+}
+</pre>
+
+
 # Common reasons for disk utilization on Confluence/JIRA exceeding 75%
 1) /var/atlassian/application-data/confluence/backups  (local backups enabled - default behavior unless manually disabled)
 2) /opt/atlassian/confluence/logs/catalina.out         (file not rotated regularly)

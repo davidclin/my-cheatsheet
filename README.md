@@ -80,4 +80,5 @@ truncate -s0 /opt/atlassian/confluence/logs/catalina.out
 From the EC2 management console, select EBS volume and resize volume
 Once the state updates to "in use - optimizing' ssh to EC2 instance to expand the mounted filesystem
 Issue 'resize2fs'
+<p>  
 (Source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)

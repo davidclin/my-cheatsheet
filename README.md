@@ -1,6 +1,23 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# How to install AWS CLI in Virtual Environment 
+https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-virtualenv.html
+
+Note: Python3 may lag behind Python2 so try this first:
+
+<pre>
+$ virtualenv -p /usr/bin/python2.7 ~/aws-cli-virtualenv
+$ source aws-cli-virtualenv/bin/activate
+$ pip install --upgrade awscli
+$ aws --version
+
+# to upgrade later on
+$ pip install --upgrade awscli 
+</pre>
+    
+    
+
 # How to extract metadata from an EC2 instance
 <pre>
 bash-4.4# curl -s http://169.254.169.254/2014-11-05/meta-data/iam/security-credentials/arn:aws:iam::<acccount_id>:role/davidrole && echo ""

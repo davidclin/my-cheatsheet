@@ -2,8 +2,6 @@
 David's Cheatsheet and Examples
 
 # How to install AWS CLI in Virtual Environment 
-https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-virtualenv.html
-
 Note: Python3 may lag behind Python2 so try this first:
 
 <pre>
@@ -15,8 +13,14 @@ $ aws --version
 # to upgrade later on
 $ pip install --upgrade awscli 
 </pre>
-    
-    
+
+Resource: https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-virtualenv.html
+
+
+# How to install boto3
+$ pip install boto3  (install from a virtualenv)
+
+Resource: https://github.com/boto/boto3
 
 # How to extract metadata from an EC2 instance
 <pre>

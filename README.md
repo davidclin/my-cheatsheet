@@ -22,6 +22,35 @@ $ pip install boto3  (install from a virtualenv)
 
 Resource: https://github.com/boto/boto3
 
+# How to parse Boto3 Python API response 
+Example:
+<pre>
+response={
+    'InternetGateway': {
+        'InternetGatewayId': 'string',
+        'Attachments': [
+            {
+                'VpcId': 'string',
+                'State': 'attaching'
+            },
+        ],
+        'Tags': [
+            {
+                'Key': 'string',
+                'Value': 'string'
+            },
+        ]
+    }
+}
+</pre>
+
+To get the State:
+<pre>
+response['InternetGateway']['InternetGatewayId']
+</pre>
+
+Resource: https://sdbrett.com/BrettsITBlog/2017/01/python-parsing-values-from-api-response/
+
 # How to extract metadata from an EC2 instance
 <pre>
 bash-4.4# curl -s http://169.254.169.254/2014-11-05/meta-data/iam/security-credentials/arn:aws:iam::<acccount_id>:role/davidrole && echo ""

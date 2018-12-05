@@ -77,6 +77,20 @@ Also, make sure you don't run pip with `sudo` or else it will probably change ow
 If everything's going into `.local`, you can just run it as your account.
 </pre>
 
+# How to change hostname of your AWS Linux instance
+<pre>
+For Amazon Linux 2
+  sudo hostnamectl set-hostname webserver.mydomain.com
+
+For Amazon Linux AMI
+  Open /etc/sysconfig/network configuration file
+  Change 'HOSTNAME' to 'HOSTNAME=webserver.mydomain.com'
+  
+[ec2-user]$ sudo reboot
+</pre>
+
+Resource: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-hostname.html
+
 # How to find large files
 <pre>
 See disk utilization

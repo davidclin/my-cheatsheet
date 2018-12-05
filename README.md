@@ -16,6 +16,14 @@ $ pip -V
 
 Resource: https://www.liquidweb.com/kb/how-to-install-pip-on-centos-7/
 
+# How to install virtualenv using pip
+<pre>
+$ pip install virtualenv
+$ virtualenv --version
+</pre>
+
+Resource: https://docs.python-guide.org/dev/virtualenvs/
+
 # How to install AWS CLI in Virtual Environment 
 Note: Python3 may lag behind Python2 so try this first:
 

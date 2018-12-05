@@ -210,6 +210,14 @@ $ unzip -l myDeploymentPackage.zip
 8) Create new Lambda, upload deployement package and provision any addtional Lambda specific settings
    (For example, IAM  policies/role, Lambda execution time, event trigger, etc.) and remember to 
    enable active tracing!) 
+<pre>
+If you get an error "No module named lambda_function",
+rename the default Lambda function handler so it uses Python_File_Name.Method_Name from the Lambda management console.
+For example: 
+Python filename: cloudzero_xray_sdk_lambda.py
+
+Lambda handler field should be: cloudzero_xray_sdk_lambda.lambda_handler
+</pre>
 9) Test your Lambda
 </pre>
 

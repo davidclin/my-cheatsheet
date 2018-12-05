@@ -178,3 +178,36 @@ Issue
 <p>  
 (Source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
 </pre>
+
+# CloudZero X-ray SDK 
+
+1) Create your Lambda
+2) Export your Lambda as zip file
+3) Install the CloudZero X-ray SDK in a virtualenv using pip
+4) Install dependency modules local to the function project (ie: boto3)
+   $ pip install boto3 -t ./
+   $ pip install aws-xray-sdk -t ./
+   $ pip install tox -t ./
+5) Insert CloudZero X-ray SDK import and api statements
+<pre>
+Example:
+# For Xray Tracing
+# Place at top of Lambda handlers
+import botocore  # noqa
+from aws_xray_sdk.core import xray_recorder
+from aws_xray_sdk.core import patch_all
+xray_recorder.configure(context_missing='LOG_ERROR')
+patch_all()
+</pre>
+6) Manually build a Lambda deployment package
+<pre>
+zip -r ../myDeploymentPackage.zip
+7) Create new Lambda, upload deployement package and provision any addtional Lambda specific settings
+   (For example, IAM  policies/role, Lambda execution time, event trigger, etc.)
+</pre>
+
+Resources:
+CloudZero X-ray SDK Repo
+https://github.com/Cloudzero/aws-xray-sdk-python
+How do I build an AWS Lambda deployment package for Python?
+https://aws.amazon.com/premiumsupport/knowledge-center/build-python-lambda-deployment-package/

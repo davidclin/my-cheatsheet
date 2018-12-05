@@ -207,7 +207,9 @@ zip -r ../myDeploymentPackage.zip
 </pre>
 
 Resources:
+<pre>
 CloudZero X-ray SDK Repo
 https://github.com/Cloudzero/aws-xray-sdk-python
 How do I build an AWS Lambda deployment package for Python?
 https://aws.amazon.com/premiumsupport/knowledge-center/build-python-lambda-deployment-package/
+</pre>

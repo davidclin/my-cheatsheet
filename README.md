@@ -208,7 +208,8 @@ $ cd ..
 $ unzip -l myDeploymentPackage.zip
 </pre>
 8) Create new Lambda, upload deployement package and provision any addtional Lambda specific settings
-   (For example, IAM  policies/role, Lambda execution time, event trigger, etc.)
+   (For example, IAM  policies/role, Lambda execution time, event trigger, etc.) and remember to 
+   enable active tracing!) 
 9) Test your Lambda
 </pre>
 

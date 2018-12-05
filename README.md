@@ -1,6 +1,21 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# How to install pip with yum
+<pre>
+# Option 1: Install using Extra Packages Enterprise Linux (EPEL)
+$ yum -y upate
+$ yum -y install python-pip
+$ pip -V
+
+# Option 2: Install with curl and Python
+$ curl "https:''//bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+$ python get-pip.py
+$ pip -V
+</pre>
+
+Resource: https://www.liquidweb.com/kb/how-to-install-pip-on-centos-7/
+
 # How to install AWS CLI in Virtual Environment 
 Note: Python3 may lag behind Python2 so try this first:
 

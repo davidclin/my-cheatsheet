@@ -199,11 +199,17 @@ from aws_xray_sdk.core import patch_all
 xray_recorder.configure(context_missing='LOG_ERROR')
 patch_all()
 </pre>
-6) Manually build a Lambda deployment package
+6) Manually build a Lambda deployment package and create zip file in parent directory of project
 <pre>
 zip -r ../myDeploymentPackage.zip
-7) Create new Lambda, upload deployement package and provision any addtional Lambda specific settings
+7) Verify deployment package
+<pre>
+$ cd ..
+$ unzip -l myDeploymentPackage.zip
+</pre>
+8) Create new Lambda, upload deployement package and provision any addtional Lambda specific settings
    (For example, IAM  policies/role, Lambda execution time, event trigger, etc.)
+9) Test your Lambda
 </pre>
 
 Resources:

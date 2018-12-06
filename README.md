@@ -228,3 +228,16 @@ https://github.com/Cloudzero/aws-xray-sdk-python
 How do I build an AWS Lambda deployment package for Python?
 https://aws.amazon.com/premiumsupport/knowledge-center/build-python-lambda-deployment-package/
 </pre>
+
+# How to version control your Lambdas
+Write a script to deploy the lambda given the location of a zip file that resides in a version control system.
+
+Then deploy the Lambda from the repo.
+
+Steps the script should take:
+1. git clone the repo
+2. run the requirement.txt or whatever to get the correct libraries
+3. zip up everything
+4. Push to AWS Lambda
+
+*Putting software hat on* This process should be encapsulated within a build process (ie: Jenkins) and the code should have to pass some reasonable tests.

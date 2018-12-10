@@ -189,7 +189,7 @@ Issue
 
 4) Install dependency modules local to the function project (ie: boto3)
 <pre>
-   $ pip install boto3 -t ./
+   $ pip install boto3 -t ./   (-t installs packages into <dir>. By default this will not replace existing files/folders in <dir>.)
    $ pip install aws-xray-sdk -t ./
    $ pip install tox -t ./
 </pre>
@@ -208,13 +208,13 @@ patch_all()
 
 6) Manually build a Lambda deployment package and create zip file in parent directory of project
 <pre>
-zip -r ../myDeploymentPackage.zip
+zip -r ../myDeploymentPackage.zip   (-r recurses into directories)
 </pre>
 
 7) Verify deployment package
 <pre>
 $ cd ..
-$ unzip -l myDeploymentPackage.zip
+$ unzip -l myDeploymentPackage.zip  (-l lists files in short format)
 </pre>
 
 8) Create new Lambda, upload deployement package and provision any addtional Lambda specific settings

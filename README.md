@@ -182,14 +182,18 @@ Issue
 # CloudZero X-ray SDK 
 
 1) Create your Lambda
+
 2) Export your Lambda as zip file
+
 3) Install the CloudZero X-ray SDK in a virtualenv using pip
+
 4) Install dependency modules local to the function project (ie: boto3)
 <pre>
    $ pip install boto3 -t ./
    $ pip install aws-xray-sdk -t ./
    $ pip install tox -t ./
 </pre>
+
 5) Insert CloudZero X-ray SDK import and api statements
 <pre>
 Example:
@@ -201,14 +205,18 @@ from aws_xray_sdk.core import patch_all
 xray_recorder.configure(context_missing='LOG_ERROR')
 patch_all()
 </pre>
+
 6) Manually build a Lambda deployment package and create zip file in parent directory of project
 <pre>
 zip -r ../myDeploymentPackage.zip
+</pre>
+
 7) Verify deployment package
 <pre>
 $ cd ..
 $ unzip -l myDeploymentPackage.zip
 </pre>
+
 8) Create new Lambda, upload deployement package and provision any addtional Lambda specific settings
    (For example, IAM  policies/role, Lambda execution time, event trigger, etc.) and remember to 
    enable active tracing!) 
@@ -220,8 +228,9 @@ Python filename: cloudzero_xray_sdk_lambda.py
 
 Lambda handler field should be: cloudzero_xray_sdk_lambda.lambda_handler
 </pre>
+
 9) Test your Lambda
-</pre>
+
 
 Resources:
 <pre>

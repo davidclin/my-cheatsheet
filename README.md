@@ -185,9 +185,11 @@ Issue
 2) Export your Lambda as zip file
 3) Install the CloudZero X-ray SDK in a virtualenv using pip
 4) Install dependency modules local to the function project (ie: boto3)
+<pre>
    $ pip install boto3 -t ./
    $ pip install aws-xray-sdk -t ./
    $ pip install tox -t ./
+</pre>
 5) Insert CloudZero X-ray SDK import and api statements
 <pre>
 Example:

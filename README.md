@@ -232,13 +232,9 @@ Lambda handler field should be: cloudzero_xray_sdk_lambda.lambda_handler
 9) Test your Lambda
 
 
-Resources:
-<pre>
-CloudZero X-ray SDK Repo
-https://github.com/Cloudzero/aws-xray-sdk-python
-How do I build an AWS Lambda deployment package for Python?
-https://aws.amazon.com/premiumsupport/knowledge-center/build-python-lambda-deployment-package/
-</pre>
+Resources: <br>
+[CloudZero X-ray SDK Repo](https://github.com/Cloudzero/aws-xray-sdk-python) <br>
+[How do I build an AWS Lambda deployment package for Python?](https://aws.amazon.com/premiumsupport/knowledge-center/build-python-lambda-deployment-package/) <br>
 
 # How to version control your Lambdas
 Write a script to deploy the lambda given the location of a zip file that resides in a version control system.

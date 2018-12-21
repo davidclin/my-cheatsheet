@@ -18,7 +18,7 @@ Resource: https://www.liquidweb.com/kb/how-to-install-pip-on-centos-7/
 
 # How to install virtualenv using pip
 <pre>
-$ pip install virtualenv
+$ sudo pip install virtualenv
 $ virtualenv --version
 </pre>
 

@@ -4,8 +4,8 @@ David's Cheatsheet and Examples
 # How to install pip with yum
 <pre>
 # Option 1: Install using Extra Packages Enterprise Linux (EPEL)
-# yum -y upate
-$ yum -y install python-pip
+$ sudo yum -y upate
+$ sudo yum -y install python-pip
 $ pip -V
 
 # Option 2: Install with curl and Python

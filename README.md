@@ -1,7 +1,7 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
-# How to install pip with yum
+# How to install pip with yum (for Amazon Linux2)
 <pre>
 # Option 1: Install using Extra Packages Enterprise Linux (EPEL)
 $ sudo yum -y upate

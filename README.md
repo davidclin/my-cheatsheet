@@ -16,11 +16,17 @@ $ pip -V
 
 Resource: https://www.liquidweb.com/kb/how-to-install-pip-on-centos-7/
 
-# How to install virtualenv using apt-get
+# How to install virtualenv 
+<pre>
+$ sudo pip install virtualenv  (standalone install)
+</pre>
+
 <pre>
 $ sudo apt-get ip install virtualenv
 $ virtualenv --version
 </pre>
+
+Resource: https://docs.python-guide.org/dev/virtualenvs/
 
 # How to install git using yum
 <pre>
@@ -30,11 +36,6 @@ $ git --version
 
 # How to install git client using apt-get
 TBD
-
-# How to install virtualenv using apt-get
-
-Resource: https://docs.python-guide.org/dev/virtualenvs/
-
 
 
 # How to install AWS CLI in Virtual Environment 

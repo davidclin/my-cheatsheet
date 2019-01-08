@@ -1,6 +1,9 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# Official Amazon EC2 Ubuntu AMI's
+https://cloud-images.ubuntu.com/locator/ec2/
+
 # How to install pip with yum (for Amazon Linux2)
 <pre>
 # Option 1: Install using Extra Packages Enterprise Linux (EPEL)

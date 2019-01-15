@@ -265,3 +265,29 @@ Steps the script should take:
 4. Push to AWS Lambda
 
 *Putting software hat on* This process should be encapsulated within a build process (ie: Jenkins) and the code should have to pass some reasonable tests.
+
+# How to quickly query RDS MySQL database using mysql run from EC2
+==========================
+Connecting to RDS database
+==========================
+mysql -h <rds-endpoint> -P <port> -u <rds_username> -p
+
+=====================
+Useful mysql commands
+=====================
+show databases;
+use <database_name>;
+show tables;
+describe <table_name>;
+
+Example for (Confluence issue)[https://jira.atlassian.com/browse/CONFSERVER-55274?utm_source=STP&utm_medium=logScan]:
+select count(bandanaid) from BANDANA where BANDANAKEY like '%com.atlassian.oauth.serviceprovider.ServiceProviderTokenStore.token%';
+
+Note: 
+1) mysql doesn't like spaces after function names which is why `count(bandanaid)` and not `count (bandanaid)` is used
+2) mysql database names are case sensitive which is why `BANDANA` and not `bandana` is used
+
+select * FROM <table_name>;
+select * FROM <field_name>;
+
+Resource: (MySQL 101)[https://www.globo.tech/learning-center/mysql-101-basics/]

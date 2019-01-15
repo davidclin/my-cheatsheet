@@ -267,14 +267,11 @@ Steps the script should take:
 *Putting software hat on* This process should be encapsulated within a build process (ie: Jenkins) and the code should have to pass some reasonable tests.
 
 # How to quickly query RDS MySQL database using mysql run from EC2
-==========================
-Connecting to RDS database
-==========================
+
+## Connecting to RDS database
 mysql -h <rds-endpoint> -P <port> -u <rds_username> -p
 
-=====================
-Useful mysql commands
-=====================
+## Useful mysql commands
 show databases;
 use <database_name>;
 show tables;

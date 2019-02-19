@@ -1,6 +1,18 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# S3 CLI Tuning
+AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional profiles you use with S3):
+
+<pre>
+s3 =
+   max_concurrent_requests = 100
+   max_queue_size = 10000
+   multipart_threshold = 64MB
+   multipart_chunksize = 16MB
+   max_bandwidth = 4096MB/s
+</pre>
+
 # Official Amazon EC2 Ubuntu AMI's
 https://cloud-images.ubuntu.com/locator/ec2/
 

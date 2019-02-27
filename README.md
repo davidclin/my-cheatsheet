@@ -2,6 +2,7 @@
 David's Cheatsheet and Examples
 
 # S3 Public Bucket Policy
+ <pre>
  {
     "Version": "2008-10-17",
     "Statement": [
@@ -16,6 +17,7 @@ David's Cheatsheet and Examples
         }
     ]
 }
+</pre>
 
 # S3 CLI Tuning
 AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional profiles you use with S3):

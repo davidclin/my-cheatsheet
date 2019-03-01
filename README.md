@@ -19,6 +19,39 @@ David's Cheatsheet and Examples
 }
 </pre>
 
+If you plan on using aws s3 sync, use the following at a minimum:
+<pre>
+{
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:GetObject",
+            "Resource": [
+                "arn:aws:s3:::XXX/*",
+                "arn:aws:s3:::XXX"
+            ]
+        },
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:ListBucket",
+            "Resource": [
+                "arn:aws:s3:::XXX/*",
+                "arn:aws:s3:::XXX"
+            ]
+        }
+    ]
+}
+</pre>
+
 # S3 CLI Tuning
 AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional profiles you use with S3):
 

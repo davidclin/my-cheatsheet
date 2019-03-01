@@ -2,6 +2,7 @@
 David's Cheatsheet and Examples
 
 # S3 Public Bucket Policy
+Basic public read access
  <pre>
  {
     "Version": "2008-10-17",
@@ -47,6 +48,47 @@ If you plan on using aws s3 sync, use the following at a minimum:
                 "arn:aws:s3:::XXX/*",
                 "arn:aws:s3:::XXX"
             ]
+        }
+    ]
+}
+</pre>
+Permit based on IpAddress and HTTPS
+<pre>
+{
+    "Version": "2008-10-17",
+    "Id": "S3Policy",
+    "Statement": [
+        {
+            "Sid": "IPDeny",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::tri-ses-dashboard/*",
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": [
+                        "x.x.x.x",
+                        "x.x.x.x",
+                        "x.x.x.x"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "HTTPDeny",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::tri-ses-dashboard/*",
+            "Condition": {
+                "Bool": {
+                    "aws:SecureTransport": "false"
+                }
+            }
         }
     ]
 }

@@ -1,6 +1,9 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# S3 Bucket Policy Examples
+https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
+
 # S3 Public Bucket Policy
 Basic public read access
  <pre>

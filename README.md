@@ -4,7 +4,7 @@ David's Cheatsheet and Examples
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 
-# S3 Public Bucket Policy
+# S3 Public Bucket Policy Use Cases
 Basic public read access
  <pre>
  {
@@ -55,6 +55,7 @@ If you plan on using aws s3 sync, use the following at a minimum:
     ]
 }
 </pre>
+
 Permit based on IpAddress and HTTPS
 <pre>
 {
@@ -90,6 +91,42 @@ Permit based on IpAddress and HTTPS
             "Condition": {
                 "Bool": {
                     "aws:SecureTransport": "false"
+                }
+            }
+        }
+    ]
+}
+</pre>
+
+Permit public access if bucket has public website hosting enbled but only allow access based on IP address 
+<pre>
+{
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::bucketname/*"
+        },
+        {
+            "Sid": "IPDeny",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::bucketname/*",
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": [
+                        "x.x.x.x",
+                        "x.x.x.x",
+                        "x.x.x.x"
+                    ]
                 }
             }
         }

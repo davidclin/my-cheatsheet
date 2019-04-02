@@ -134,6 +134,26 @@ Permit public access if bucket has public website hosting enbled but only allow 
 }
 </pre>
 
+Permit IAM User(s) only
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "WhitelistExampleBucket",
+            "Effect": "Deny",
+            "NotPrincipal": {
+                "AWS": [
+                    "arn:aws:iam::929292782238:user/david.lin"
+                ]
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::bucketname/*"
+        }
+    ]
+}
+</pre>
+
 # S3 CLI Tuning
 AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional profiles you use with S3):
 

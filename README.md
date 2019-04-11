@@ -457,3 +457,14 @@ select * FROM field_name;
 </pre>
 
 Resource: (MySQL 101)[https://www.globo.tech/learning-center/mysql-101-basics/]
+
+## Modifying a list of objects curated from an S3 Batch Operations completion report
+<pre>
+The objects listed in an S3 Batch Operations completion report are not surrounded with quotation marks and contain alot of "garbage" information.
+You can use VIM to strip each row down to just the S3 keys.
+After doing that, copy the result to GoogleSheets and add columns containing quotations on each side.
+Download the GoogleSheet as a csv file.
+Use VIM to replace the """", and ,"""" marks with single quotes.
+Use the final artifact that can be read in as a list in Python.
+</pre>
+

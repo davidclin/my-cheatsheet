@@ -458,7 +458,7 @@ select * FROM field_name;
 
 Resource: (MySQL 101)[https://www.globo.tech/learning-center/mysql-101-basics/]
 
-## Modifying a list of objects curated from an S3 Batch Operations completion report
+# Modifying a list of objects curated from an S3 Batch Operations completion report
 <pre>
 The objects listed in an S3 Batch Operations completion report are not surrounded with quotation marks and contain alot of "garbage" information.
 You can use VIM to strip each row down to just the S3 keys.

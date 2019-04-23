@@ -468,3 +468,7 @@ Use VIM to replace the """", and ,"""" marks with single quotes.
 Use the final artifact that can be read in as a list in Python.
 </pre>
 
+# How to Prompt for User Input in Linux Shell Script
+<pre>
+https://tecadmin.net/prompt-user-input-in-linux-shell-script/
+</pre>

@@ -492,3 +492,15 @@ grep -E 'word1|word2' *.doc
 grep -e string1 -e string2 *.pl
 egrep "word1|word2" *.c
 </pre>
+
+# How to take user input in Bash shell
+<pre>
+# User input
+read -p "Enter AWS username: " aws_username
+read -p "Enter GHE username: " ghe_username
+read -s -p "Enter GHE password: " ghe_password
+
+echo $aws_username
+echo $ghe_username
+echo $ghe_password
+</pre>

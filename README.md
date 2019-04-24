@@ -473,7 +473,8 @@ Use the final artifact that can be read in as a list in Python.
 
 # How to search multiple words/string pattern using grep command on Bash shell
 <pre>
-Simple example: ./foo.sh | grep 'string1\|string2\|string3'
+Simple example: 
+aws cloudtrail lookup-events --lookup-attributes AttributeKey=ResourceName,AttributeValue=not-real-bucket  | grep 'EventName\|Username'
 
 
 The syntax is:

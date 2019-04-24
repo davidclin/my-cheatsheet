@@ -470,3 +470,24 @@ Use the final artifact that can be read in as a list in Python.
 
 # How to Prompt for User Input in Linux Shell Script
 (link)[https://tecadmin.net/prompt-user-input-in-linux-shell-script/]
+
+# How to search multiple words/string pattern using grep command on Bash shell
+<pre>
+Simple example: ./foo.sh | grep 'string1\|string2\|string3'
+
+
+The syntax is:
+Use single quotes in the pattern: grep 'pattern*' file1 file2
+Use extended regular expressions: egrep 'pattern1|pattern2' *.py
+Use this syntax on older Unix shells: grep -e pattern1 -e pattern2 *.pl
+
+Here are all other possibilities:
+grep 'word1\|word2\|word3' /path/to/file
+### Search all text files ###
+grep 'word*' *.txt
+### Search all python files for 'wordA' or 'wordB' ###
+grep 'wordA*'\''wordB' *.py
+grep -E 'word1|word2' *.doc
+grep -e string1 -e string2 *.pl
+egrep "word1|word2" *.c
+</pre>

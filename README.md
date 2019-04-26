@@ -351,14 +351,25 @@ From the EC2 management console, select EBS volume and resize volume
 Once the state updates to "in use - optimizing' ssh to EC2 instance to expand the mounted filesystem
 <p>
 <pre>
-Issue 
+Use Case 1 - XFS File System
+'$ lsblk' to get filesystem name
+'$ sudo growpart /dev/nvme0n1 1' where 1 designates the partition you want to grow and nvme0n1 is the filesystem 
+'$ lsblk' to confirm partition reflects new size
+'$ sudo yum install xfsprogs' to install XFS tools if not already installed
+'$ sudo xfs_growfs -d /dev/nvme0n1p1' to resize filessystem where /dev/nvme0n1p1 designates the mount point from df -h
+'$ df -h' to verify filesystem was successfully resized
+
+Use Case 2 - ext2, ext3, or ext4 File System
 '$ lsblk' to get filesystem name
 '$ sudo growpart /dev/xvdf 1' where the space designates the partition you want to grow 
 '$ lsblk' to confirm partition reflects new size
 '$ sudo resize2fs /dev/xvda1' to resize filessystem
 '$ df -h' to verify filesystem was successfully resized
+
 <p>  
 (Source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
+
+Extending a Linux File System After Resizing a Volume https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
 </pre>
 
 # CloudZero X-ray SDK 

@@ -472,11 +472,19 @@ Resource: (MySQL 101)[https://www.globo.tech/learning-center/mysql-101-basics/]
 # Modifying a list of objects curated from an S3 Batch Operations completion report
 <pre>
 The objects listed in an S3 Batch Operations completion report are not surrounded with quotation marks and contain alot of "garbage" information.
-You can use VIM to strip each row down to just the S3 keys.
-After doing that, copy the result to GoogleSheets and add columns containing quotations on each side.
+You can use VIM to strip each row down to just the S3 keys. (eg: :%s/,,.*// , delete everything from ,, to end of line)
+After doing that locally, import the result file to GoogleSheets and add columns containing quotations on each side.
 Download the GoogleSheet as a csv file.
 Use VIM to replace the """", and ,"""" marks with single quotes.
 Use the final artifact that can be read in as a list in Python.
+
+If you exceed GoogleSheet's maximum supported cells, then use VIM and do the following:
+1) Go to record mode: Type 'q' followed by any letter [a-z]. Enter insert mode and add quotation in beginning of first line,
+add quotation to end of line, add comma to end of line, then move to beginning of next line
+2) Type 'q' to stop the recording
+3) Type N@[a-z] where N is number of iterations you'd like to repeat the recording and [a-z] is the letter you used in step 1
+4) Repeat step 3 until you reach the end of the file
+5) Remember to remove the comma at the end of the last line
 </pre>
 
 # How to Prompt for User Input in Linux Shell Script

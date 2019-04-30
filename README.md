@@ -482,8 +482,7 @@ If you exceed GoogleSheet's maximum supported cells, then use VIM and do the fol
 1) Go to record mode: Type 'q' followed by any letter [a-z]. Enter insert mode and add quotation in beginning of first line,
 add quotation to end of line, add comma to end of line, then move to beginning of next line
 2) Type 'q' to stop the recording
-3) Type N@[a-z] where N is number of iterations you'd like to repeat the recording and [a-z] is the letter you used in step 1
-4) Repeat step 3 until you reach the end of the file
+3) Type N@[a-z] where N is number of iterations you'd like to repeat the recording and [a-z] is the letter you used in step 1. Tip: You can get N by jumping to the bottom of the file then use (N-1) as the number of iterations to use.
 5) Remember to remove the comma at the end of the last line
 </pre>
 

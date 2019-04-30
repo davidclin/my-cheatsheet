@@ -483,7 +483,8 @@ If you exceed GoogleSheet's maximum supported cells, then use VIM and do the fol
 add quotation to end of line, add comma to end of line, then move to beginning of next line
 2) Type 'q' to stop the recording
 3) Type N@[a-z] where N is number of iterations you'd like to repeat the recording and [a-z] is the letter you used in step 1. Tip: You can get N by jumping to the bottom of the file then use (N-1) as the number of iterations to use.
-5) Remember to remove the comma at the end of the last line
+5) Remember to remove the comma at the end of the last line and to clean up any funny looking filenames that may contain spaces.
+You'll know by searching for '++++' (plus signs)
 </pre>
 
 # How to Prompt for User Input in Linux Shell Script
@@ -522,3 +523,16 @@ echo $aws_username
 echo $ghe_username
 echo $ghe_password
 </pre>
+
+# How to invoke boto3 script using a non-default AWS profile
+<pre>
+""" Example using default profile """
+client = boto3.client('s3')
+print client.put_object_acl(Bucket=bucketname,Key=i,ACL='bucket-owner-full-control',)
+
+""" Example using non-default profile """
+foo  = boto3.session.Session(profile_name='foo')
+foo_client = miru.client('s3')
+print foo_client.put_object_acl(Bucket=bucketname,Key=i,ACL='bucket-owner-full-control',)
+</pre>
+[StackOverflow](https://stackoverflow.com/questions/33378422/how-to-choose-an-aws-profile-when-using-boto3-to-connect-to-cloudfront)

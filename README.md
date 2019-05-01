@@ -154,6 +154,82 @@ Permit IAM User(s) only
 }
 </pre>
 
+Permit accounts and require the bucket-owner-full-control condition for PutObject operations
+<pre>
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1530302529355",
+    "Statement": [
+        {
+            "Sid": "Stmt1530302524307",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::111111111111:root",
+                    "arn:aws:iam::222222222222:root"
+                ]
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::example-bucket/*",
+                "arn:aws:s3:::example-bucket"
+            ]
+        },
+        {
+            "Sid": "RefuseAllPutsFromOtherAccountsWithoutFullControlACL",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::example-bucket/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "s3:x-amz-acl": "bucket-owner-full-control"
+                }
+            }
+        },
+        {
+            "Sid": "Account Access",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::111111111111:root",
+                    "arn:aws:iam::333333333333:root",
+                    "arn:aws:iam::444444444444:root",
+                    "arn:aws:iam::222222222222:root"
+                ]
+            },
+            "Action": [
+                "s3:Get*",
+                "s3:Put*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket/*",
+                "arn:aws:s3:::example-bucket"
+            ]
+        },
+        {
+            "Sid": "Account Read-only Access",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::555555555555:root"
+            },
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket/*",
+                "arn:aws:s3:::example-bucket"
+            ]
+        }
+    ]
+}
+
+</pre>
+
 # S3 CLI Tuning
 AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional profiles you use with S3):
 

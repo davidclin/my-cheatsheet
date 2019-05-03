@@ -1,6 +1,12 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# How to ssh to EC2 instance using Linux Putty
+1) Make sure the .ppk file has chmod 400 set
+2) Check that the owner of the .ppk file is correct (if root, you may need to run 'chown \<username\> \<.ppk filename\>')
+3) Don't add ec2-user (or ubuntu) in your profile. For example, don't use ec2-user@host.
+   Just include the host IP (or domain name) then provide the user name when prompted.
+
 # How to Convert .pem file to .ppk (and vice versa)
 [AWS How-to-Guide](https://aws.amazon.com/premiumsupport/knowledge-center/convert-pem-file-into-ppk/)
 <br>

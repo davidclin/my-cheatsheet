@@ -1,6 +1,21 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# How to Convert .pem file to .ppk (and vice versa)
+[AWS How-to-Guide](https://aws.amazon.com/premiumsupport/knowledge-center/convert-pem-file-into-ppk/)
+<br>
+<pre>
+# Install putty
+$ sudo yum install putty  (rpm-based)
+$ sudo apt-get install putty-tools (dpkg-based)
+
+# Convert from .pem file to .ppk
+$ sudo puttygen pemKey.pem -o ppkKey.ppk -O private
+
+# Convert from .ppk to .pem file
+$ sudo puttygen ppkkey.ppk -O private-openssh -o pemkey.pem
+</pre>
+
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 

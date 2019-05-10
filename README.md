@@ -1,6 +1,11 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# How to Decode Encoded Authorization Failure Message When Launching EC2 Instance
+<pre>
+$ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg here}
+</pre>
+
 # How to ssh to EC2 instance using Linux Putty
 1) Make sure the .ppk file has chmod 400 set
 2) Check that the owner of the .ppk file is correct (if root, you may need to run 'chown \<username\> \<.ppk filename\>')

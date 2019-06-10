@@ -674,12 +674,12 @@ Login to GHE, select 'Settings' from the profile icon located in the upper right
 
 ## API Example
 <pre>
-curl -u "david-lin:\&lttoken&gt" -X POST -d @&ltbot-user-name-goes-here&gt-bot.json https://github.com/aws/internal.company.global/api/v3/admin/users -header "Content-Type:application/json" 
+curl -u "david-lin:\&lttoken&gt" -X POST -d @&ltbot-user-name-goes-here&gt-bot.json &ltURL&gt/api/v3/admin/users -header "Content-Type:application/json" 
 
 where:
    - david-lin is the admin-capable GHE user and &lttoken&gt is then user's token (not shown)
    - &ltbot-user-name-goes-here&gt-bot.json is a plain text json file (see below)
-   - URL is the API endpoint on the GHE server ( for example, github.awsinternal.company.global as used above)
+   - URL is the API endpoint on the GHE server ( for example, https://github.awsinternal.domain.name )
 </pre>
 
 ### Example JSON file

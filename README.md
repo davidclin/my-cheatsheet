@@ -664,3 +664,25 @@ foo_client = miru.client('s3')
 print foo_client.put_object_acl(Bucket=bucketname,Key=i,ACL='bucket-owner-full-control',)
 </pre>
 [StackOverflow](https://stackoverflow.com/questions/33378422/how-to-choose-an-aws-profile-when-using-boto3-to-connect-to-cloudfront)
+
+# How to create a bot user to access GitHub Enterprise repositories
+First, verify your admin-capable GHE user has 'site-admin' permissions. 
+<p>
+<p>
+Login to GHE, select 'Settings' from the profile icon located in the upper right corner, click 'Developer settings', click 'Personal access tokens', click on token, then verify 'site-admin' checkbox is selected.
+<p>
+
+## API Example
+<pre>
+curl -u "david-lin:\&lttoken&gt" -X POST -d @&ltbot-user-name-goes-here&gt-bot.json https://github.com/aws/internal.company.global/api/v3/admin/users -header "Content-Type:application/json" 
+
+where:
+   - david-lin is the admin-capable GHE user and &lttoken&gt is then user's token (not shown)
+   - &ltbot-user-name-goes-here&gt-bot.json is a plain text json file (see below)
+   - URL is the API endpoint on the GHE server ( for example, github.awsinternal.company.global as used above)
+</pre>
+
+### Example JSON file
+<pre>
+{"login": "david-lin-bot"} 
+</pre>

@@ -684,5 +684,5 @@ where:
 
 ### Example JSON file
 <pre>
-{"login": "david-lin-bot"} 
+{"login": "david-lin-bot-user"} 
 </pre>

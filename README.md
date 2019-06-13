@@ -674,7 +674,7 @@ Login to GHE, select 'Settings' from the profile icon located in the upper right
 
 ## API Example
 <pre>
-curl -u "david-lin:\&lttoken&gt" -X POST -d @&ltbot-user-name-goes-here&gt-bot.json &ltURL&gt/api/v3/admin/users -header "Content-Type:application/json" 
+curl -u "david-lin:\&lttoken&gt" -X POST -d @&ltbot-user-name-goes-here&gt-bot.json &ltURL&gt/api/v3/admin/users --header "Content-Type:application/json" 
 
 where:
    - david-lin is the admin-capable GHE user and &lttoken&gt is then user's token (not shown)

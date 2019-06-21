@@ -502,6 +502,7 @@ Use Case 1 - XFS File System
 '$ sudo xfs_growfs -d /dev/nvme0n1p1' to resize filessystem where /dev/nvme0n1p1 designates the mount point from df -h
 '$ df -h' to verify filesystem was successfully resized
 
+
 Use Case 2 - ext2, ext3, or ext4 File System
 '$ lsblk' to get filesystem name
 '$ sudo growpart /dev/xvdf 1' where the space designates the partition you want to grow 

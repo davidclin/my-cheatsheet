@@ -1,6 +1,19 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# Good practice whenever you update Ubuntu on an EC2 instance
+<pre>
+$ df  (check available disk space)
+
+$ cd /usr/src
+$ ll  (check for stale packages)
+
+$ sudo apt update && sudo apt full-upgrade
+$ sudo apt autoremove
+
+$ df (check reclaimed disk space)
+</pre>
+
 # How to Decode Encoded Authorization Failure Message When Launching EC2 Instance
 <pre>
 $ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg here}
@@ -432,7 +445,9 @@ $ df
 Start from root directory and issue:
 $ sudo du -sh *
 
-Another good place to start is the /var directory (if this is a Confluence/JIRA server)
+Some good places to start are:
+1) /var directory (if this is a Confluence/JIRA server)
+2) /usr/source (if this is an ec2 instance, look for stale linux-aws-headers-x.x.x-xxxx binaries then issue `sudo apt update && sudo apt full-upgrade` followed by `sudo apt autoremove` to clean them out) 
 
 Change into suspect directory and repeat command until you find source of large files.
 </pre>

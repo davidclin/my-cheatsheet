@@ -502,6 +502,7 @@ Use Case 1 - XFS File System
 '$ sudo xfs_growfs -d /dev/nvme0n1p1' to resize filessystem where /dev/nvme0n1p1 designates the mount point from df -h
 '$ df -h' to verify filesystem was successfully resized
 
+<p>
 
 Use Case 2 - ext2, ext3, or ext4 File System
 '$ lsblk' to get filesystem name
@@ -511,8 +512,8 @@ Use Case 2 - ext2, ext3, or ext4 File System
 '$ df -h' to verify filesystem was successfully resized
 
 <p>  
-(Source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
 
+(Source: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html)
 Extending a Linux File System After Resizing a Volume https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
 </pre>
 

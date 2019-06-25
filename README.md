@@ -725,4 +725,4 @@ Note: POSIX requires a trailing newline character to consider any line to be com
 <br>
 [Cron examples](https://github.com/davidclin/cloudcustodian-policies#running-policy-as-cron-job)
 <br>
-[(Cron requires a newline character on its own line at the end of the file)](https://superuser.com/questions/1059775/cron-apparently-requires-a-newline-character-on-its-own-line-at-the-end-of-the-f)
+[Cron requires a newline character on its own line at the end of the file](https://superuser.com/questions/1059775/cron-apparently-requires-a-newline-character-on-its-own-line-at-the-end-of-the-f)

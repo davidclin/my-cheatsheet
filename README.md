@@ -703,3 +703,11 @@ where:
 <pre>
 {"login": "david-lin-bot-user"} 
 </pre>
+
+# Generating MD5 Checksum
+Windows 10
+<pre>
+1. Copy file to a folder on your Desktop (e.g. \Desktop\foo)
+2. Open Powershell and navigate to the folder (e.g. cd .\Desktop\foo)
+3. Type `./fciv -md5 <filename>` 
+</pre>

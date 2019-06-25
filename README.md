@@ -716,6 +716,8 @@ Windows 10
 <pre>
 $ crontab -l   lists cron jobs
 $ crontab -e   editor mode
+
+Note: POSIX requires a trailing newline character to consider any line to be complete [(StackExchange)](https://superuser.com/questions/1059775/cron-apparently-requires-a-newline-character-on-its-own-line-at-the-end-of-the-f)
 </pre>
 [Simple Cron Editor](https://crontab.guru/)
 <br>

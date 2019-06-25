@@ -711,3 +711,13 @@ Windows 10
 2. Open Powershell and navigate to the folder (e.g. cd .\Desktop\foo)
 3. Type `./fciv -md5 &ltfilename&gt` 
 </pre>
+
+# Crontab
+<pre>
+$ crontab -l   lists cron jobs
+$ crontab -e   editor mode
+</pre>
+[Simple Cron Editor](https://crontab.guru/)
+<br>
+[AWS Schedule Expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
+[Cron examples](https://github.com/davidclin/cloudcustodian-policies#running-policy-as-cron-job)

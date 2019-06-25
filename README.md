@@ -717,9 +717,10 @@ Windows 10
 $ crontab -l   lists cron jobs
 $ crontab -e   editor mode
 
-Note: POSIX requires a trailing newline character to consider any line to be complete [(StackExchange)](https://superuser.com/questions/1059775/cron-apparently-requires-a-newline-character-on-its-own-line-at-the-end-of-the-f)
+Note: POSIX requires a trailing newline character to consider any line to be complete
 </pre>
 [Simple Cron Editor](https://crontab.guru/)
 <br>
 [AWS Schedule Expressions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html)
 [Cron examples](https://github.com/davidclin/cloudcustodian-policies#running-policy-as-cron-job)
+[(Cron requires a newline character on its own line at the end of the file)](https://superuser.com/questions/1059775/cron-apparently-requires-a-newline-character-on-its-own-line-at-the-end-of-the-f)

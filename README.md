@@ -295,6 +295,60 @@ Permit accounts and require the bucket-owner-full-control condition for PutObjec
 
 </pre>
 
+Whitelist IAM users allowed to read/write to bucket resource. When attached to an IAM Group that has the AmazonS3FullAccess policy attached, it will allow all users in the IAM Group to read but only IAM users in the whitelist to write to the S3 buckets defined.
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowS3ReadAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket",
+                "arn:aws:s3:::example-bucket/*"
+            ]
+        },
+        {
+            "Sid": "AllowS3HeadObjectAccess",
+            "Effect": "Allow",
+            "Action": "s3:HeadObject",
+            "Resource": [
+                "arn:aws:s3:::example-bucket",
+                "arn:aws:s3:::example-bucket/*"
+            ]
+        },
+        {
+            "Sid": "DenyS3WriteAccessExceptWhitelist",
+            "Effect": "Deny",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObjectVersion",
+                "s3:PutObjectVersionAcl",
+                "s3:DeleteObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket",
+                "arn:aws:s3:::example-bucket/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::929292782238:user/david.lin",
+                        "arn:aws:iam::929292782238:user/john.doe"                        
+                    ]
+                }
+            }
+        }
+    ]
+}
+</pre>
+
+
 # S3 CLI Tuning
 AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional profiles you use with S3):
 

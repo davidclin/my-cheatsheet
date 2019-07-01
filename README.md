@@ -32,13 +32,32 @@ $ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg
 # Install putty
 $ sudo yum install putty  (rpm-based)
 $ sudo apt-get install putty-tools (dpkg-based)
+</pre>
 
 # Convert from .pem file to .ppk
+<pre>
 $ sudo puttygen pemKey.pem -o ppkKey.ppk -O private
+</pre>
 
 # Convert from .ppk to .pem file
+<pre>
 $ sudo puttygen ppkkey.ppk -O private-openssh -o pemkey.pem
 </pre>
+
+# Handling SignatureDoesNotMatch errors using IAM user credentials
+<pre>
+Check if the environment variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY are being used.
+The AWS CLI will use those values instead of what is provided via ~/.aws/credentials and ~/.aws/config.
+
+Try running `printenv | grep AWS` and verify that those values aren't set. If so, then just run...
+
+unset AWS_SECRET_ACCESS_KEY
+unset AWS_ACCESS_KEY_ID
+
+Otherwise, it's possible the keys were mangled during copy/paste.
+Reset the AWS CLI config via `aws configure` and re-enter the keys being careful not to fat finger or leave any trailing spaces.
+</pre>
+
 
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8

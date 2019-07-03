@@ -14,6 +14,12 @@ $ sudo apt autoremove
 $ df (check reclaimed disk space)
 </pre>
 
+# How to copy all objects in an S3 bucket to your local machine
+<pre>
+$ aws s3 cp s3://bucketname/ ./ --recursive
+</pre>
+
+
 # How to Decode Encoded Authorization Failure Message When Launching EC2 Instance
 <pre>
 $ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg here}

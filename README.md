@@ -19,6 +19,11 @@ $ df (check reclaimed disk space)
 $ aws s3 cp s3://bucketname/ ./ --recursive
 </pre>
 
+# How to install Windows AWS CLI 
+[Click here for instructions](https://docs.aws.amazon.com/cli/latest/userguide/install-windows.html)
+<br>
+Note: Download and install the MSI then execute from Command Prompt. 
+
 
 # How to Decode Encoded Authorization Failure Message When Launching EC2 Instance
 <pre>

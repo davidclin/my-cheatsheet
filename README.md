@@ -70,315 +70,6 @@ Reset the AWS CLI config via `aws configure` and re-enter the keys being careful
 </pre>
 
 
-# S3 Bucket Policy Examples
-https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
-
-# S3 Public Bucket Policy Use Cases
-Basic public read access
- <pre>
- {
-    "Version": "2008-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowPublicRead",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::<bucket-name>/*"
-        }
-    ]
-}
-</pre>
-
-Basic Get* and List* Actions
-<pre>
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:Get*",
-                "s3:List*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::bucket-name-goes-here",
-                "arn:aws:s3:::bucket-name-goes-here/*"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": "s3:ListAllMyBuckets",
-            "Resource": "*"
-        }
-    ]
-}
-</pre>
-
-
-If you plan on using aws s3 sync, use the following at a minimum:
-<pre>
-{
-    "Version": "2008-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowPublicRead",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:GetObject",
-            "Resource": [
-                "arn:aws:s3:::XXX/*",
-                "arn:aws:s3:::XXX"
-            ]
-        },
-        {
-            "Sid": "AllowPublicRead",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:ListBucket",
-            "Resource": [
-                "arn:aws:s3:::XXX/*",
-                "arn:aws:s3:::XXX"
-            ]
-        }
-    ]
-}
-</pre>
-
-Permit based on IpAddress and HTTPS
-<pre>
-{
-    "Version": "2008-10-17",
-    "Id": "S3Policy",
-    "Statement": [
-        {
-            "Sid": "IPDeny",
-            "Effect": "Deny",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::tri-ses-dashboard/*",
-            "Condition": {
-                "NotIpAddress": {
-                    "aws:SourceIp": [
-                        "x.x.x.x",
-                        "x.x.x.x",
-                        "x.x.x.x"
-                    ]
-                }
-            }
-        },
-        {
-            "Sid": "HTTPDeny",
-            "Effect": "Deny",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::tri-ses-dashboard/*",
-            "Condition": {
-                "Bool": {
-                    "aws:SecureTransport": "false"
-                }
-            }
-        }
-    ]
-}
-</pre>
-
-Permit public access if bucket has public website hosting enbled but only allow access based on IP address 
-<pre>
-{
-    "Version": "2008-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowPublicRead",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:GetObject",
-            "Resource": "arn:aws:s3:::bucketname/*"
-        },
-        {
-            "Sid": "IPDeny",
-            "Effect": "Deny",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::bucketname/*",
-            "Condition": {
-                "NotIpAddress": {
-                    "aws:SourceIp": [
-                        "x.x.x.x",
-                        "x.x.x.x",
-                        "x.x.x.x"
-                    ]
-                }
-            }
-        }
-    ]
-}
-</pre>
-
-Permit IAM User(s) only
-<pre>
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "WhitelistExampleBucket",
-            "Effect": "Deny",
-            "NotPrincipal": {
-                "AWS": [
-                    "arn:aws:iam::929292782238:user/david.lin"
-                ]
-            },
-            "Action": "s3:*",
-            "Resource": "arn:aws:s3:::bucketname/*"
-        }
-    ]
-}
-</pre>
-
-Permit accounts and require the bucket-owner-full-control condition for PutObject operations
-<pre>
-{
-    "Version": "2012-10-17",
-    "Id": "Policy1530302529355",
-    "Statement": [
-        {
-            "Sid": "Stmt1530302524307",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": [
-                    "arn:aws:iam::111111111111:root",
-                    "arn:aws:iam::222222222222:root"
-                ]
-            },
-            "Action": "s3:*",
-            "Resource": [
-                "arn:aws:s3:::example-bucket/*",
-                "arn:aws:s3:::example-bucket"
-            ]
-        },
-        {
-            "Sid": "RefuseAllPutsFromOtherAccountsWithoutFullControlACL",
-            "Effect": "Deny",
-            "Principal": {
-                "AWS": "*"
-            },
-            "Action": "s3:PutObject",
-            "Resource": "arn:aws:s3:::example-bucket/*",
-            "Condition": {
-                "StringNotEquals": {
-                    "s3:x-amz-acl": "bucket-owner-full-control"
-                }
-            }
-        },
-        {
-            "Sid": "Account Access",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": [
-                    "arn:aws:iam::111111111111:root",
-                    "arn:aws:iam::333333333333:root",
-                    "arn:aws:iam::444444444444:root",
-                    "arn:aws:iam::222222222222:root"
-                ]
-            },
-            "Action": [
-                "s3:Get*",
-                "s3:Put*",
-                "s3:List*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::example-bucket/*",
-                "arn:aws:s3:::example-bucket"
-            ]
-        },
-        {
-            "Sid": "Account Read-only Access",
-            "Effect": "Allow",
-            "Principal": {
-                "AWS": "arn:aws:iam::555555555555:root"
-            },
-            "Action": [
-                "s3:Get*",
-                "s3:List*"
-            ],
-            "Resource": [
-                "arn:aws:s3:::example-bucket/*",
-                "arn:aws:s3:::example-bucket"
-            ]
-        }
-    ]
-}
-
-</pre>
-
-Whitelist IAM users allowed to read/write to bucket resource. When attached to an IAM Group that has the AmazonS3FullAccess policy attached, it will allow all users in the IAM Group to read but only IAM users in the whitelist to write to the S3 buckets defined.
-<pre>
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Sid": "AllowS3ReadAccess",
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::example-bucket",
-                "arn:aws:s3:::example-bucket/*"
-            ]
-        },
-        {
-            "Sid": "AllowS3HeadObjectAccess",
-            "Effect": "Allow",
-            "Action": "s3:HeadObject",
-            "Resource": [
-                "arn:aws:s3:::example-bucket",
-                "arn:aws:s3:::example-bucket/*"
-            ]
-        },
-        {
-            "Sid": "DenyS3WriteAccessExceptWhitelist",
-            "Effect": "Deny",
-            "Action": [
-                "s3:PutObject",
-                "s3:DeleteObjectVersion",
-                "s3:PutObjectVersionAcl",
-                "s3:DeleteObject",
-                "s3:PutObjectAcl"
-            ],
-            "Resource": [
-                "arn:aws:s3:::example-bucket",
-                "arn:aws:s3:::example-bucket/*"
-            ],
-            "Condition": {
-                "StringNotEquals": {
-                    "aws:PrincipalArn": [
-                        "arn:aws:iam::929292782238:user/david.lin",
-                        "arn:aws:iam::929292782238:user/john.doe"                        
-                    ]
-                }
-            }
-        }
-    ]
-}
-</pre>
-
-
 # S3 CLI Tuning
 AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional profiles you use with S3):
 
@@ -810,3 +501,311 @@ Note: POSIX requires a trailing newline character to consider any line to be com
 [Cron examples](https://github.com/davidclin/cloudcustodian-policies#running-policy-as-cron-job)
 <br>
 [Cron requires a newline character on its own line at the end of the file](https://superuser.com/questions/1059775/cron-apparently-requires-a-newline-character-on-its-own-line-at-the-end-of-the-f)
+
+# S3 Bucket Policy Examples
+https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
+
+# S3 Public Bucket Policy Use Cases
+Basic public read access
+ <pre>
+ {
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::<bucket-name>/*"
+        }
+    ]
+}
+</pre>
+
+Basic Get* and List* Actions
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket-name-goes-here",
+                "arn:aws:s3:::bucket-name-goes-here/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": "s3:ListAllMyBuckets",
+            "Resource": "*"
+        }
+    ]
+}
+</pre>
+
+
+If you plan on using aws s3 sync, use the following at a minimum:
+<pre>
+{
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:GetObject",
+            "Resource": [
+                "arn:aws:s3:::XXX/*",
+                "arn:aws:s3:::XXX"
+            ]
+        },
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:ListBucket",
+            "Resource": [
+                "arn:aws:s3:::XXX/*",
+                "arn:aws:s3:::XXX"
+            ]
+        }
+    ]
+}
+</pre>
+
+Permit based on IpAddress and HTTPS
+<pre>
+{
+    "Version": "2008-10-17",
+    "Id": "S3Policy",
+    "Statement": [
+        {
+            "Sid": "IPDeny",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::tri-ses-dashboard/*",
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": [
+                        "x.x.x.x",
+                        "x.x.x.x",
+                        "x.x.x.x"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "HTTPDeny",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::tri-ses-dashboard/*",
+            "Condition": {
+                "Bool": {
+                    "aws:SecureTransport": "false"
+                }
+            }
+        }
+    ]
+}
+</pre>
+
+Permit public access if bucket has public website hosting enbled but only allow access based on IP address 
+<pre>
+{
+    "Version": "2008-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPublicRead",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::bucketname/*"
+        },
+        {
+            "Sid": "IPDeny",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::bucketname/*",
+            "Condition": {
+                "NotIpAddress": {
+                    "aws:SourceIp": [
+                        "x.x.x.x",
+                        "x.x.x.x",
+                        "x.x.x.x"
+                    ]
+                }
+            }
+        }
+    ]
+}
+</pre>
+
+Permit IAM User(s) only
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "WhitelistExampleBucket",
+            "Effect": "Deny",
+            "NotPrincipal": {
+                "AWS": [
+                    "arn:aws:iam::929292782238:user/david.lin"
+                ]
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::bucketname/*"
+        }
+    ]
+}
+</pre>
+
+Permit accounts and require the bucket-owner-full-control condition for PutObject operations
+<pre>
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1530302529355",
+    "Statement": [
+        {
+            "Sid": "Stmt1530302524307",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::111111111111:root",
+                    "arn:aws:iam::222222222222:root"
+                ]
+            },
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::example-bucket/*",
+                "arn:aws:s3:::example-bucket"
+            ]
+        },
+        {
+            "Sid": "RefuseAllPutsFromOtherAccountsWithoutFullControlACL",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::example-bucket/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "s3:x-amz-acl": "bucket-owner-full-control"
+                }
+            }
+        },
+        {
+            "Sid": "Account Access",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::111111111111:root",
+                    "arn:aws:iam::333333333333:root",
+                    "arn:aws:iam::444444444444:root",
+                    "arn:aws:iam::222222222222:root"
+                ]
+            },
+            "Action": [
+                "s3:Get*",
+                "s3:Put*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket/*",
+                "arn:aws:s3:::example-bucket"
+            ]
+        },
+        {
+            "Sid": "Account Read-only Access",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::555555555555:root"
+            },
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket/*",
+                "arn:aws:s3:::example-bucket"
+            ]
+        }
+    ]
+}
+
+</pre>
+
+Whitelist IAM users allowed to read/write to bucket resource. When attached to an IAM Group that has the AmazonS3FullAccess policy attached, it will allow all users in the IAM Group to read but only IAM users in the whitelist to write to the S3 buckets defined.
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowS3ReadAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket",
+                "arn:aws:s3:::example-bucket/*"
+            ]
+        },
+        {
+            "Sid": "AllowS3HeadObjectAccess",
+            "Effect": "Allow",
+            "Action": "s3:HeadObject",
+            "Resource": [
+                "arn:aws:s3:::example-bucket",
+                "arn:aws:s3:::example-bucket/*"
+            ]
+        },
+        {
+            "Sid": "DenyS3WriteAccessExceptWhitelist",
+            "Effect": "Deny",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObjectVersion",
+                "s3:PutObjectVersionAcl",
+                "s3:DeleteObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket",
+                "arn:aws:s3:::example-bucket/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::929292782238:user/david.lin",
+                        "arn:aws:iam::929292782238:user/john.doe"                        
+                    ]
+                }
+            }
+        }
+    ]
+}
+</pre>

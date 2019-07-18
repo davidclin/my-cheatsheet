@@ -809,3 +809,30 @@ Whitelist IAM users allowed to read/write to bucket resource. When attached to a
     ]
 }
 </pre>
+
+# S3 Copy Objects from Source Account to Destination Account
+The following example demonstrates how you can copy objects from a source account to a destination account while granting bucket-owner-full-control.
+
+Step 1) Attach the following bucket policy to the destination bucket
+<pre>
+{
+    "Version": "2012-10-17",
+    "Id": "Policy1563469398098",
+    "Statement": [
+        {
+            "Sid": "Stmt1563469394390",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::929292782238:user/AWS_IAM_USER_NAME"
+            },
+            "Action": "s3:*",
+            "Resource": "arn:aws:s3:::TARGET_BUCKET_NAME/*"
+        }
+    ]
+}
+</pre>
+
+Step 2) Issue the following AWS CLI using the Principal that was specified in the bucket policy
+<pre>
+$ aws s3 cp s3://SOURCE_BUCKET/ s3://DESTINATION_BUCKET/ --acl bucket-owner-full-control --recursive
+</pre>

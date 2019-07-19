@@ -30,6 +30,20 @@ Note: Download and install the MSI then execute from Command Prompt.
 $ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg here}
 </pre>
 
+# How to run advanced searches in the AWS EC2 Dashboard
+Did you know you can run advanced searches in the EC2 Dashboard?
+<p>
+[Check it out here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Filtering.html)
+<p>
+A really powerful feature is regular expressions.
+<p>
+For example, if you want to filter for instances with specific private IP address ranges you would enter the following in the search field:
+<p>
+<pre>
+(192.168.[0-10]|10.1.[0-5])
+</pre>
+
+
 # How to ssh to EC2 instance using Linux Putty
 1) Make sure the .ppk file has chmod 400 set
 2) Check that the owner of the .ppk file is correct (if root, you may need to run 'chown \<username\> \<.ppk filename\>')

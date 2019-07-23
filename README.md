@@ -295,7 +295,7 @@ Use Case 1 - XFS File System
 
 Use Case 2 - ext2, ext3, or ext4 File System
 '$ lsblk' to get filesystem name
-'$ sudo growpart /dev/xvdf 1' where the space designates the partition you want to grow 
+'$ sudo growpart /dev/xvda 1' where the space designates the partition you want to grow 
 '$ lsblk' to confirm partition reflects new size
 '$ sudo resize2fs /dev/xvda1' to resize filessystem
 '$ df -h' to verify filesystem was successfully resized

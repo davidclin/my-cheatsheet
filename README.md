@@ -232,6 +232,22 @@ For Amazon Linux AMI
 
 Resource: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/set-hostname.html
 
+# How to find file(s)
+<pre>
+Examples:
+$ find / -type f -name "*string"   <-- Recursively search using wildcard match starting from / root directory
+$ find . -type f -name README.md   <-- Exact filename match in present directory
+
+You can add the following to .bashrc to create alias named say `ff`
+$ alias ff="find / -type f -name"
+
+Usage would be, 
+$ ff "*foo.txt"  to search for all files that have foo.txt
+$ ff README.md   to find location of all README.md files 
+
+</pre>
+Resource: https://alvinalexander.com/blog/post/linux-unix/linux-find-command-recipes-faqs-common-examples
+
 # How to find large files
 <pre>
 See disk utilization

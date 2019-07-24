@@ -20,6 +20,14 @@ From your user's home path (just type `cd` + enter), add the following line to .
 alias="command-goes-here"
 </pre>
 
+# How to connect to MySQL in Linux
+<pre>
+$ sudo apt install mysql-client-core-5.7
+$ mysql -u USERNAME -h IPADDRESS -p DATABASENAME
+$ cntl+d (to break out)
+</pre>
+[Resource](https://www.cyberciti.biz/faq/how-to-connect-to-my-mysql-database-server-using-command-line-and-php/)
+
 # How to copy all objects in an S3 bucket to your local machine
 <pre>
 $ aws s3 cp s3://bucketname/ ./ --recursive

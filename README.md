@@ -14,6 +14,12 @@ $ sudo apt autoremove
 $ df (check reclaimed disk space)
 </pre>
 
+# How to create an alias in Linux
+From your user's home path (just type `cd` + enter), add the following line to .bashrc
+<pre>
+alias="command-goes-here"
+</pre>
+
 # How to copy all objects in an S3 bucket to your local machine
 <pre>
 $ aws s3 cp s3://bucketname/ ./ --recursive

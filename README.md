@@ -247,11 +247,13 @@ $ find / -type f -name "*string"   <-- Recursively search using wildcard match s
 $ find . -type f -name README.md   <-- Exact filename match in present directory
 
 You can add the following to .bashrc to create alias named say `ff`
-$ alias ff="find / -type f -name"
+$ alias ff="sudo find / -type f -name"
 
 Usage would be, 
 $ ff "*foo.txt"  to search for all files that have foo.txt
 $ ff README.md   to find location of all README.md files 
+
+Note: Remember to exit the shell and login back in for change to kick in.
 
 </pre>
 Resource: https://alvinalexander.com/blog/post/linux-unix/linux-find-command-recipes-faqs-common-examples

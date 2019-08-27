@@ -273,6 +273,41 @@ Some good places to start are:
 Change into suspect directory and repeat command until you find source of large files.
 </pre>
 
+# How to create a partition on AWS EC2 Instance
+<pre>
+View list of volumes
+$ lsblk  
+
+Partition, format, mount volume
+$ sudo fdisk /dev/xvdf  (enter 'n' to create new partition and select all default settings then enter 'w' to write changes)
+$ sudo mkfs -t ext4 /dev/xvdf1
+$ sudo mount /dev/xvdf1 /mnt
+
+Optionally, copy over data from existing drive to a temporary location
+$ sudo su
+# shopt -s dotglob  (shopt is a shell script)
+# sudo rsync -aulvXpogtr /var/* /mnt
+# exit
+
+Unmount and make persistent
+$ sudo umount /mnt
+$ sudo vim /etc/fstab
+add following line and save:
+/dev/xvdf1   /var       ext4    defaults,noatime,nofail 0   2
+
+Optionally, backup data
+$ sudo mv /var/ /var.old 
+$ sudo mkdir /var
+
+Mount
+$ sudo mount -av
+
+Finish
+Reboot and you should be set!
+</pre>
+
+Source: https://www.prodjex.com/2018/06/move-var-on-an-aws-ec2-instance/
+
 # How to truncate large log file
 <pre>
 # Make sure to backup file 

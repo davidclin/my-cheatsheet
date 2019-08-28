@@ -276,12 +276,12 @@ Change into suspect directory and repeat command until you find source of large 
 # How to create a partition on AWS EC2 Instance
 <pre>
 View list of volumes
-$ lsblk  
+$ lsblk
 
 Partition, format, mount volume
 $ sudo fdisk /dev/xvdf  (enter 'n' to create new partition and select all default settings then enter 'w' to write changes)
 $ sudo mkfs -t ext4 /dev/xvdf1
-$ sudo mount /dev/xvdf1 /mnt
+$ sudo mount /dev/xvdf1 /mnt  (if /mnt doesn't exist, mkdir /mnt)
 
 Optionally, copy over data from existing drive to a temporary location
 $ sudo su

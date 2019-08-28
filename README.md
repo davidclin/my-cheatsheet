@@ -273,29 +273,31 @@ Some good places to start are:
 Change into suspect directory and repeat command until you find source of large files.
 </pre>
 
-# How to create a partition on AWS EC2 Instance
+# How to partition, format, and mount an EBS Volume
 <pre>
-View list of volumes
+View list of volumes (aka devices in linux)
 $ lsblk
 
-Partition, format, mount volume
+Partition, format, mount the volume
+Example for volume /dev/xvdf
 $ sudo fdisk /dev/xvdf  (enter 'n' to create new partition and select all default settings then enter 'w' to write changes)
 $ sudo mkfs -t ext4 /dev/xvdf1
-$ sudo mount /dev/xvdf1 /mnt  (if /mnt doesn't exist, mkdir /mnt)
+$ sudo mount /dev/xvdf1 /mnt   
 
-Optionally, copy over data from existing drive to a temporary location
+Copy over any data from an existing drive to the temporary /mnt location
+Example for /var
 $ sudo su
-# shopt -s dotglob  (shopt is a shell script)
-# sudo rsync -aulvXpogtr /var/* /mnt
+# shopt -s dotglob  (shopt is a shell script ; -s enables dotglob ; issue shopt gain to confirm dotblog is enabled)
+# sudo rsync -aulvXpogtr /var/* /mnt  (this copies the entire contents of /var to /mnt)
 # exit
 
-Unmount and make persistent
-$ sudo umount /mnt
+Unmount and make the mount point between /dev/xvdf1 and /var persistent after a reboot
+$ sudo umount -l /mnt  (the -l is a lazy umount and will help if you get an error about /mnt being busy)
 $ sudo vim /etc/fstab
-add following line and save:
+Add following line and save:
 /dev/xvdf1   /var       ext4    defaults,noatime,nofail 0   2
 
-Optionally, backup data
+Backup original data in event you screw something up
 $ sudo mv /var/ /var.old 
 $ sudo mkdir /var
 

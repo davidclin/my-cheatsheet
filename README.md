@@ -303,6 +303,9 @@ Add following line and save:
 
 Mount all devices described in /etc/fstab
 $ sudo mount -av
+If you get the error `mount: /dev/xvdf1 on /<directory name> does not exist`, then create the directory
+and issue the command again.
+$ lsblk  (to verify mount point is successfully created)
 
 Finish
 Reboot and you should be set!

@@ -282,10 +282,10 @@ Partition, format, mount the volume
 Example for volume /dev/xvdf
 $ sudo fdisk /dev/xvdf  (enter 'n' to create new partition and select all default settings then enter 'w' to write changes)
 $ sudo mkfs -t ext4 /dev/xvdf1
-$ sudo mount /dev/xvdf1 /mnt   
 
 Copy over any data from an existing drive to the temporary /mnt location
 Example for /var
+$ sudo mount /dev/xvdf1 /mnt   
 $ sudo su
 # shopt -s dotglob  (shopt is a shell script ; -s enables dotglob ; issue shopt gain to confirm dotblog is enabled)
 # sudo rsync -aulvXpogtr /var/* /mnt  (this copies the entire contents of /var to /mnt)

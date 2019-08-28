@@ -290,22 +290,23 @@ $ sudo su
 # shopt -s dotglob  (shopt is a shell script ; -s enables dotglob ; issue shopt gain to confirm dotblog is enabled)
 # sudo rsync -aulvXpogtr /var/* /mnt  (this copies the entire contents of /var to /mnt)
 # exit
-
-Unmount and make the mount point between /dev/xvdf1 and /var persistent after a reboot
 $ sudo umount -l /mnt  (the -l is a lazy umount and will help if you get an error about /mnt being busy)
-$ sudo vim /etc/fstab
-Add following line and save:
-/dev/xvdf1   /var       ext4    defaults,noatime,nofail 0   2
 
 Backup original data in event you screw something up
 $ sudo mv /var/ /var.old 
 $ sudo mkdir /var
 
-Mount
+Make the mount point between /dev/xvdf1 and /var persistent after a reboot
+$ sudo vim /etc/fstab
+Add following line and save:
+/dev/xvdf1   /var       ext4    defaults,noatime,nofail 0   2
+
+Mount all devices described in /etc/fstab
 $ sudo mount -av
 
 Finish
 Reboot and you should be set!
+$ reload
 </pre>
 
 Source: https://www.prodjex.com/2018/06/move-var-on-an-aws-ec2-instance/

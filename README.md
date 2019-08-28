@@ -309,7 +309,7 @@ $ lsblk  (to verify mount point is successfully created)
 
 Finish
 Reboot and you should be set!
-$ reload
+$ sudo reboot
 </pre>
 
 Source: https://www.prodjex.com/2018/06/move-var-on-an-aws-ec2-instance/

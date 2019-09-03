@@ -19,6 +19,7 @@ From your user's home path (just type `cd` + enter), add the following line to .
 <pre>
 alias="command-goes-here"
 </pre>
+Don't forget to exit your shell and login back in for the alias to take effect.
 
 # How to connect to MySQL in Linux
 <pre>

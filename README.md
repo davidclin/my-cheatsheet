@@ -100,7 +100,8 @@ Reset the AWS CLI config via `aws configure` and re-enter the keys being careful
 
 
 # S3 CLI Tuning
-AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional profiles you use with S3):
+AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional pro
+you use with S3):
 
 <pre>
 s3 =
@@ -262,7 +263,9 @@ Resource: https://alvinalexander.com/blog/post/linux-unix/linux-find-command-rec
 # How to find large files
 <pre>
 See disk utilization
-$ df (or df -h for human readible)
+$ df 
+$ df -i
+$ df -h
 
 Start from root directory and issue:
 $ sudo du -sh *
@@ -272,6 +275,21 @@ Some good places to start are:
 2) /usr/source (if this is an ec2 instance, look for stale linux-aws-headers-x.x.x-xxxx binaries then issue `sudo apt update && sudo apt full-upgrade` followed by `sudo apt autoremove` to clean them out) 
 
 Change into suspect directory and repeat command until you find source of large files.
+
+On rare occassions, Confluence may hold onto large files that have been deleted.
+You can verify by issuing:
+
+$ lsof +L1
+COMMAND    PID       USER   FD   TYPE DEVICE    SIZE/OFF NLINK    NODE NAME
+systemd-j  407       root  txt    REG  202,1      326224     0    2308 /lib/systemd/systemd-journald (deleted)
+systemd-l 1132       root  txt    REG  202,1      618520     0    2307 /lib/systemd/systemd-logind (deleted)
+systemd   1460     ubuntu  txt    REG  202,1     1577232     0    2303 /lib/systemd/systemd (deleted)
+(sd-pam   1466     ubuntu  txt    REG  202,1     1577232     0    2303 /lib/systemd/systemd (deleted)
+java      9648 confluence    1w   REG  202,1 11444725708     0  271691 /opt/atlassian/confluence/logs/catalina.out (deleted)
+java      9648 confluence    2w   REG  202,1 11444725708     0  271691 /opt/atlassian/confluence/logs/catalina.out (deleted)
+java      9648 confluence  855uW  REG    9,0           0     0 4195490 /var/atlassian/application-data/confluence/index/edge/write.lock (deleted)
+
+Kill the offending processes if this is the case.
 </pre>
 
 # How to partition, format, and mount an EBS Volume

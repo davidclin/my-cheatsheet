@@ -262,7 +262,7 @@ Resource: https://alvinalexander.com/blog/post/linux-unix/linux-find-command-rec
 # How to find large files
 <pre>
 See disk utilization
-$ df
+$ df (or df -h for human readible)
 
 Start from root directory and issue:
 $ sudo du -sh *

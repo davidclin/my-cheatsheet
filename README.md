@@ -279,7 +279,7 @@ Change into suspect directory and repeat command until you find source of large 
 On rare occassions, Confluence may hold onto large files that have been deleted.
 You can verify by issuing:
 
-$ lsof +L1
+$ sudo lsof +L1
 COMMAND    PID       USER   FD   TYPE DEVICE    SIZE/OFF NLINK    NODE NAME
 systemd-j  407       root  txt    REG  202,1      326224     0    2308 /lib/systemd/systemd-journald (deleted)
 systemd-l 1132       root  txt    REG  202,1      618520     0    2307 /lib/systemd/systemd-logind (deleted)

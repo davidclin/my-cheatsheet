@@ -333,6 +333,11 @@ $ sudo reboot
 
 Source: https://www.prodjex.com/2018/06/move-var-on-an-aws-ec2-instance/
 
+# How to unzip/uncompress .tar.gz files
+<pre>
+$ tar xvzf file.tar.gz -C /path/to/somedirectory
+</pre>
+
 # How to truncate large log file
 <pre>
 # Make sure to backup file 

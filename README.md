@@ -14,6 +14,14 @@ $ sudo apt autoremove
 $ df (check reclaimed disk space)
 </pre>
 
+# AWS EC2 Resources
+[EC2Instances.info](https://ec2instances.info/?min_memory=8&min_vcpus=4&min_storage=20&selected=m5a.2xlarge,i3en.12xlarge,i3en.metal,t2.micro)
+<br>
+[Amazon EC2 AMI Locator (Ubuntu)](https://cloud-images.ubuntu.com/locator/ec2/)
+
+# AWS IAM References
+[Complete AWS IAM Reference](https://iam.cloudonaut.io/)
+
 # How to create an alias in Linux
 From your user's home path (just type `cd` + enter), add the following line to .bashrc
 <pre>

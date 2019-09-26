@@ -355,6 +355,29 @@ $ aws s3 cp filename.txt s3://bucketname
 $ truncate -s 0 myfile.txt
 </pre>
 
+# How to view available memory, cpu's, and other info of your Linux machine
+To see information about unused and used memory and swap space on your custom VM, run
+<pre>
+free
+</pre>
+
+To see details about the RAM installed on your VM, run
+<pre>
+sudo dmidecode -t 17
+</pre>
+
+To verify the number of processors, run
+<pre>
+nproc
+</pre>
+
+To see details about the CPUs installed on your VM, run 
+<pre>
+lscpu
+</pre>
+
+
+
 # Truncate script
 <pre>
 #!/usr/bin/env bash

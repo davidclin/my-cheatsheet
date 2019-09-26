@@ -14,6 +14,30 @@ $ sudo apt autoremove
 $ df (check reclaimed disk space)
 </pre>
 
+# How to create a virtual terminal screen without being attached to an SSH session
+If you start an application, it is tied to the life of your SSH session: that is, if you close your SSH terminal, the server is also terminated. To avoid this issue, you can use screen, an application that allows you to create a virtual terminal that can be "detached," becoming a background process, or "reattached," becoming a foreground process. When a virtual terminal is detached to the background, it will run whether you are logged in or not.
+
+To install screen, run
+<pre>
+sudo apt-get install -y screen
+</pre>
+
+To start an application in a screen virtual terminal, run
+<pre>
+sudo screen -S &ltterminal_name&gt &ltexecutable_file&gt
+</pre>
+The -S flag is used to name your screen virtual terminal.
+
+To detach the screen terminal, press 
+<pre>
+Ctrl+A, Ctrl+D
+</pre>
+
+The terminal continues to run in the background. To reattach the terminal, run
+<pre>
+sudo screen -r &ltterminal_name&gt
+</pre>
+
 # AWS EC2 Resources
 [EC2Instances.info](https://ec2instances.info/?min_memory=8&min_vcpus=4&min_storage=20&selected=m5a.2xlarge,i3en.12xlarge,i3en.metal,t2.micro)
 <br>

@@ -38,6 +38,15 @@ The terminal continues to run in the background. To reattach the terminal, run
 sudo screen -r &ltterminal_name&gt
 </pre>
 
+# Basic Installation of a Service (eg: Apache2) and how to ensure it runs after a reboot
+<pre>
+sudo apt-get update
+sudo apt-get install -y apache2
+sudo service apache2 start
+sudo update-rc.d apache2 enable  <-- set service to start on boot
+sudo service apache2 status
+</pre>
+
 # AWS EC2 Resources
 [EC2Instances.info](https://ec2instances.info/?min_memory=8&min_vcpus=4&min_storage=20&selected=m5a.2xlarge,i3en.12xlarge,i3en.metal,t2.micro)
 <br>

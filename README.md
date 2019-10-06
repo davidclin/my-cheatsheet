@@ -139,6 +139,14 @@ Otherwise, it's possible the keys were mangled during copy/paste.
 Reset the AWS CLI config via `aws configure` and re-enter the keys being careful not to fat finger or leave any trailing spaces.
 </pre>
 
+# How to Install Apache Bench and use to test autoscaling
+<pre>
+sudo apt-get update
+sudo apt-get -y install apache2-utils
+
+ab -n 10000 -c 100 http://<your forwarding IP>/    (run this two or three times)
+</pre>
+
 
 # S3 CLI Tuning
 AWS CLI S3 performance improves if you tune it. Modify your ~/.aws/config to file to contain the following (place it under [default] and any additional pro

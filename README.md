@@ -475,6 +475,38 @@ Use Case 2 - ext2, ext3, or ext4 File System
 Extending a Linux File System After Resizing a Volume https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recognize-expanded-volume-linux.html
 </pre>
 
+# Creating IAM Group and policy to allow IAM users to view the AWS Cost Explorer dashboard
+<pre>
+Create new IAM group named CostExplorerReadOnlyGroup with attached policy named CostExplorerReadOnlyPermissions:
+
+CostExplorerReadOnlyPermissions IAM Policy
+{
+   "Version": "2012-10-17",
+   "Statement": [
+       {
+           "Sid": "VisualEditor0",
+           "Effect": "Allow",
+           "Action": "cur:DescribeReportDefinitions",
+           "Resource": "*"
+       },
+       {
+           "Effect": "Allow",
+           "Action": [
+               "aws-portal:*Billing",
+               "aws-portal:*Usage",
+               "aws-portal:*PaymentMethods"
+           ],
+           "Resource": "*"
+       },
+       {
+           "Effect": "Deny",
+           "Action": "aws-portal:*Account",
+           "Resource": "*"
+       }
+   ]
+}
+</pre>
+
 # CloudZero X-ray SDK 
 
 1) Create your Lambda

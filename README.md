@@ -1,6 +1,15 @@
 # Cheatsheet
 David's Cheatsheet and Examples
 
+# Beautify your terminal to make it more enjoyable
+<pre>
+sudo apt install terminator
+sudo apt install fonts-powerline
+
+Copy and Paste following fancy prompt script in your .bashrc file
+https://raw.githubusercontent.com/ChrisTitusTech/scripts/master/fancy-bash-promt.sh
+</pre>
+
 # Good practice whenever you update Ubuntu on an EC2 instance
 <pre>
 $ df  (check available disk space)

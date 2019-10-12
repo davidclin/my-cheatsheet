@@ -394,6 +394,8 @@ Source: https://www.prodjex.com/2018/06/move-var-on-an-aws-ec2-instance/
 # How to unzip/uncompress .tar.gz files
 <pre>
 $ tar xvzf file.tar.gz -C /path/to/somedirectory
+
+The -C option means change to directory before performing any operations.
 </pre>
 
 # How to truncate large log file

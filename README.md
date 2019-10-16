@@ -56,7 +56,7 @@ sudo update-rc.d apache2 enable  <-- set service to start on boot
 sudo service apache2 status
 </pre>
 
-# Basic installation of nginx to test load balancing and web page index page
+# Basic installation of nginx to test web page
 <pre>
 sudo apt-get install nginx-light -y
 sudo vim /var/www/html/index.nginx-debian.html

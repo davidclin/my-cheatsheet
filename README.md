@@ -60,7 +60,7 @@ sudo service apache2 status
 <pre>
 sudo apt-get install nginx-light -y
 sudo vim /var/www/html/index.nginx-debian.html
-edit the <H1> header to the name of the server you want to demo
+edit the &ltH1&gt header to the name of the server you want to demo
 </pre>
 
 # AWS EC2 Resources

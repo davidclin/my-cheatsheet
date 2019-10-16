@@ -56,6 +56,13 @@ sudo update-rc.d apache2 enable  <-- set service to start on boot
 sudo service apache2 status
 </pre>
 
+# Basic installation of nginx to test load balancing and web page index page
+<pre>
+sudo apt-get install nginx-light -y
+sudo vim /var/www/html/index.nginx-debian.html
+edit the <H1> header to the name of the server you want to demo
+</pre>
+
 # AWS EC2 Resources
 [EC2Instances.info](https://ec2instances.info/?min_memory=8&min_vcpus=4&min_storage=20&selected=m5a.2xlarge,i3en.12xlarge,i3en.metal,t2.micro)
 <br>

@@ -47,6 +47,15 @@ The terminal continues to run in the background. To reattach the terminal, run
 sudo screen -r &ltterminal_name&gt
 </pre>
 
+# How to update SSL certificate on individual instances
+<pre>
+Use scp and copy the SSL certificate to the directory /etc/ssl/certs/ with the name of `name_of_cert.crt` 
+
+If Ubuntu 16.x: sudo systemctl restart apache2
+If Ubuntu 14.x: sudo service apache2 restart
+
+</pre>
+
 # Basic Installation of a Service (eg: Apache2) and how to ensure it runs after a reboot
 <pre>
 sudo apt-get update

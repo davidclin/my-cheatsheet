@@ -53,8 +53,11 @@ Use scp and copy the SSL certificate to the directory /etc/ssl/certs/ with the n
 
 If Ubuntu 16.x: sudo systemctl restart apache2
 If Ubuntu 14.x: sudo service apache2 restart
-
 </pre>
+
+# How to quickly get list of assigned port numbers
+1) [RFC1700](https://tools.ietf.org/html/rfc1700)
+2) /etc/services
 
 # Basic Installation of a Service (eg: Apache2) and how to ensure it runs after a reboot
 <pre>

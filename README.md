@@ -10,6 +10,13 @@ Copy and Paste following fancy prompt script in your .bashrc file
 https://raw.githubusercontent.com/ChrisTitusTech/scripts/master/fancy-bash-promt.sh
 </pre>
 
+If you're using Ubuntu 18.04, the triangle fonts will [NOT work](https://github.com/powerline/fonts/issues/281).
+Copy and Paste following fancy prompt script in your .bashrc file instead
+
+Resources<br>
+[Powerline Fonts](https://github.com/powerline/fonts)<br>
+[Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
+
 # Good practice whenever you update Ubuntu on an EC2 instance
 <pre>
 $ df  (check available disk space)

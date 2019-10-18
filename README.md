@@ -1088,3 +1088,9 @@ Step 2) Issue the following AWS CLI using the Principal that was specified in th
 <pre>
 $ aws s3 cp s3://SOURCE_BUCKET/ s3://DESTINATION_BUCKET/ --acl bucket-owner-full-control --recursive
 </pre>
+
+# How to make a Google Cloud bucket public
+<pre>
+gsutil acl ch -u AllUsers:R gs://[your-storage-bucket]/cdn.png
+</pre>
+

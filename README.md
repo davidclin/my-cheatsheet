@@ -10,10 +10,21 @@ Copy and Paste following fancy prompt script in your .bashrc file
 https://raw.githubusercontent.com/ChrisTitusTech/scripts/master/fancy-bash-promt.sh
 </pre>
 
-If you're using Ubuntu 18.04, the triangle fonts will [NOT work](https://github.com/powerline/fonts/issues/281).
-Copy and Paste following fancy prompt script in your .bashrc file instead
+If you're using Ubuntu 18.04, the triangle font will [NOT work](https://github.com/powerline/fonts/issues/281).<br>
+Copy and Paste following fancy prompt script in your .bashrc file instead:<br>
+
+To change the color of text to TOXIC_GREEN_BOLD, add the following lines after the "dell" section and replace YOUR_HOSTNAME_GOES_HERE with your hostname:
+<pre>
+if [ "$HOSTNAME" = YOUR_HOSTNAME_GOES_HERE ]; then
+        FONT_COLOR_1=$WHITE; BACKGROUND_1=$BLUE; TEXTEFFECT_1=$BOLD
+        FONT_COLOR_2=$WHITE; BACKGROUND_2=$L_BLUE; TEXTEFFECT_2=$BOLD
+        FONT_COLOR_3=$D_GRAY; BACKGROUND_3=$WHITE; TEXTEFFECT_3=$BOLD
+        PROMT_FORMAT=$TOXIC_GREEN_BOLD
+fi
+</pre>
 
 Resources<br>
+[Fancy bash prompt with colors](https://yalneb.blogspot.com/2018/01/fancy-bash-promt.html)<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 

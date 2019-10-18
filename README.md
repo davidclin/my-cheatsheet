@@ -55,6 +55,13 @@ If Ubuntu 16.x: sudo systemctl restart apache2
 If Ubuntu 14.x: sudo service apache2 restart
 </pre>
 
+# How to install and use siege to generate many concurrent requests
+<pre>
+sudo apt-get -y install siege
+export LB_IP=[LB_IP_v4]
+siege -c 250 http://$LB_IP
+</pre>
+
 # How to quickly get list of assigned port numbers
 1) [RFC1700](https://tools.ietf.org/html/rfc1700)
 2) /etc/services

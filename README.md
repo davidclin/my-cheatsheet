@@ -1122,3 +1122,7 @@ $ aws s3 cp s3://SOURCE_BUCKET/ s3://DESTINATION_BUCKET/ --acl bucket-owner-full
 gsutil acl ch -u AllUsers:R gs://[your-storage-bucket]/cdn.png
 </pre>
 
+# How to connect to a Google Cloud compute engine that only has an internal IP address from a bastion host
+<pre>
+gcloud compute ssh [vm-name] --zone=us-central1-a --internal-ip
+</pre>

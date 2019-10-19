@@ -41,6 +41,16 @@ $ sudo apt autoremove
 $ df (check reclaimed disk space)
 </pre>
 
+# How to grab metadata of your EC2 instance
+<pre>
+curl http://169.254.169.254/latest/meta-data/                                                           get list of available objects
+curl http://169.254.169.254/latest/user-data                                                            get user-data    
+curl http://169.254.169.254/latest/meta-data/ami-id                                                     get ami-id
+curl http://169.254.169.254/latest/meta-data/local-hostname                                             get local hostname
+curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/02:29:96:8f:6a:2d/subnet-id        get subnet-id
+curl http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key                                  get public key
+</pre>
+
 # How to create a virtual terminal screen without being attached to an SSH session
 If you start an application, it is tied to the life of your SSH session: that is, if you close your SSH terminal, the server is also terminated. To avoid this issue, you can use screen, an application that allows you to create a virtual terminal that can be "detached," becoming a background process, or "reattached," becoming a foreground process. When a virtual terminal is detached to the background, it will run whether you are logged in or not.
 

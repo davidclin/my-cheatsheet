@@ -28,6 +28,14 @@ Resources<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
+# Simple bash script tricks
+How to iterate a command multiple times:
+<pre>
+export MY_SERVER=&ltEnter the EXTERNAL_IP here&gt
+for ((i=1;i&lt=50;i++)); do curl $MY_SERVER; done
+</pre>
+
+
 # Good practice whenever you update Ubuntu on an EC2 instance
 <pre>
 $ df  (check available disk space)

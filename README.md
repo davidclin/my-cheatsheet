@@ -83,6 +83,12 @@ If Ubuntu 16.x: sudo systemctl restart apache2
 If Ubuntu 14.x: sudo service apache2 restart
 </pre>
 
+To create a new default web page by overwriting the default, run the following:
+<pre>
+
+echo '&lt!doctype html&gt&lthtml&gt&ltbody&gt&lth1&gtHello World!&lt/h1&gt&lt/body&gt&lt/html&gt' | sudo tee /var/www/html/index.html
+</pre>
+
 # How to install and use siege to generate many concurrent requests
 <pre>
 sudo apt-get -y install siege

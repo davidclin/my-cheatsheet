@@ -825,10 +825,10 @@ Basic Read/Write Access with IAM user whitelist
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "MMTTeamWhiteList",
+            "Sid": "IAMUserWhiteList",
             "Action": "s3:*",
             "Effect": "Deny",
-            "Resource": "arn:aws:s3:::flt-audio",
+            "Resource": "arn:aws:s3:::BUCKETNAME",
             "NotPrincipal": {
                 "AWS": [
                     "arn:aws:iam::929292782238:user/david.lin",

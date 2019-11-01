@@ -818,6 +818,30 @@ Basic public read access
 }
 </pre>
 
+Basic Read/Write Access with IAM user whitelist
+<pre>
+{
+    "Id": "Policy1572303525647",
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "MMTTeamWhiteList",
+            "Action": "s3:*",
+            "Effect": "Deny",
+            "Resource": "arn:aws:s3:::flt-audio",
+            "NotPrincipal": {
+                "AWS": [
+                    "arn:aws:iam::929292782238:user/david.lin",
+                    "arn:aws:iam::929292782238:user/rick.hunter",
+                    "arn:aws:iam::929292782238:user/lisa.hayes",
+                    "arn:aws:iam::929292782238:user/roy.foker"
+                ]
+            }
+        }
+    ]
+}
+</pre>
+
 Basic Get* and List* Actions
 <pre>
 {

@@ -1155,6 +1155,79 @@ Step 2) Issue the following AWS CLI using the Principal that was specified in th
 $ aws s3 cp s3://SOURCE_BUCKET/ s3://DESTINATION_BUCKET/ --acl bucket-owner-full-control --recursive
 </pre>
 
+# S3 Cross Account Permissions and Deny Puts without bucket-owner-full-control
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowPutObject",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{crossaccount}:root"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::annotations-staging/sagemaker/*"
+        },
+        {
+            "Sid": "DenyIfBucketOwnerFullControlIsNotSet",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "arn:aws:iam::{crossaccount}:root"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::annotations-staging/sagemaker/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "s3:x-amz-acl": "bucket-owner-full-control"
+                }
+            }
+        },
+        {
+            "Sid": "AllowListBucket",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{crossaccount}:root"
+            },
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::annotations-staging"
+        },
+        {
+            "Sid": "AllowGet",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::{crossaccount}:root"
+            },
+            "Action": "s3:Get*",
+            "Resource": "arn:aws:s3:::annotations-staging/sagemaker/*"
+        },
+        {
+            "Sid": "S3BucketToBucket",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": "s3.amazonaws.com"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::annotations-staging/*",
+            "Condition": {
+                "StringEquals": {
+                    "s3:x-amz-acl": "bucket-owner-full-control",
+                    "aws:SourceAccount": "{sourceaccount}"
+                },
+                "ArnLike": {
+                    "aws:SourceArn": "arn:aws:s3:::scratch-tri-global"
+                }
+            }
+        }
+    ]
+}
+</pre>
+
+# S3 Update ACL for all objects in folder with bucket-owner-full-control
+<pre>
+aws s3 cp s3://bucketname/folder1/ s3://bucketname/folder1/ --recursive --acl bucket-owner-full-control --metadata updated=$(date)
+</pre>
+
 # How to make a Google Cloud bucket public
 <pre>
 gsutil acl ch -u AllUsers:R gs://[your-storage-bucket]/cdn.png

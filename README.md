@@ -35,6 +35,26 @@ export MY_SERVER=&ltEnter the EXTERNAL_IP here&gt
 for ((i=1;i&lt=50;i++)); do curl $MY_SERVER; done
 </pre>
 
+# AWS CLI Config
+<pre>
+~/.aws/config
+[default]
+region = us-east-1
+output = json
+
+[profile david]
+region = us-east-1
+output = json
+role_arn = arn:aws:iam::123456789012:role/OrganizationAccountAccessRole
+source_profile = default
+
+~/.aws/credentials
+[default]
+aws_access_key_id = xxxxxxxx
+aws_secret_access_key = xxxxxxx
+region = us-east-1
+output = json
+</pre>
 
 # Good practice whenever you update Ubuntu on an EC2 instance
 <pre>

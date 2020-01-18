@@ -816,6 +816,36 @@ Note: POSIX requires a trailing newline character to consider any line to be com
 <br>
 [Cron requires a newline character on its own line at the end of the file](https://superuser.com/questions/1059775/cron-apparently-requires-a-newline-character-on-its-own-line-at-the-end-of-the-f)
 
+# AWS Elastic Container Registry (ECR) IAM permission policy example
+The following policy is applied under the ECR repository permissions settings.
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "MlSandboxAccess",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:root"
+      },
+      "Action": [
+        "ecr:BatchCheckLayerAvailability",
+        "ecr:BatchGetImage",
+        "ecr:DescribeImageScanFindings",
+        "ecr:DescribeImages",
+        "ecr:DescribeRepositories",
+        "ecr:GetAuthorizationToken",
+        "ecr:GetDownloadUrlForLayer",
+        "ecr:ListImages",
+        "ecr:ListTagsForResource"
+      ]
+    }
+  ]
+}
+
+Note: Users also require IAM permissions to perform the action ecr:GetAuthorizationToken to perform pull/push requests.
+</pre>
+
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 

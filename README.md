@@ -79,6 +79,12 @@ curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/02:29:96:8f
 curl http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key                                  get public key
 </pre>
 
+# How to switch role into another AWS account
+Following assumes roleName is PowerUserRole but it can be whatever role exists in the account that can be assumed.
+<pre>
+https://signin.aws.amazon.com/switchrole?account=xxxxxxxxxxx&roleName=PowerUserRole
+</pre>
+
 # How to create a virtual terminal screen without being attached to an SSH session
 If you start an application, it is tied to the life of your SSH session: that is, if you close your SSH terminal, the server is also terminated. To avoid this issue, you can use screen, an application that allows you to create a virtual terminal that can be "detached," becoming a background process, or "reattached," becoming a foreground process. When a virtual terminal is detached to the background, it will run whether you are logged in or not.
 

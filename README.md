@@ -3,6 +3,7 @@ David's Cheatsheet and Examples
 
 # Beautify your terminal to make it more enjoyable
 <pre>
+sudo apt update
 sudo apt install terminator
 sudo apt install fonts-powerline
 

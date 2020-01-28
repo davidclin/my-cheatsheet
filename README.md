@@ -12,7 +12,16 @@ https://raw.githubusercontent.com/ChrisTitusTech/scripts/master/fancy-bash-promt
 </pre>
 
 If you're using Ubuntu 18.04, the triangle font will [NOT work](https://github.com/powerline/fonts/issues/281).<br>
-Copy and Paste following fancy prompt script in your .bashrc file instead:<br>
+Find and replace the following fancy prompt script in your .bashrc file instead:<br>
+
+<pre>
+# GENERATE SEPARATORS WITHOUT FANCY TRIANGLE
+local TRIANGLE=$'\uE0B0'
+local SEPARATOR_1=$SEPARATOR_FORMAT_1
+local SEPARATOR_2=$SEPARATOR_FORMAT_2
+local SEPARATOR_3=$SEPARATOR_FORMAT_3
+</pre>
+
 
 To change the color of text to TOXIC_GREEN_BOLD, add the following lines after the "dell" section and replace YOUR_HOSTNAME_GOES_HERE with your hostname:
 <pre>

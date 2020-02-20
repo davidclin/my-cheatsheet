@@ -300,6 +300,7 @@ $ sudo pip install virtualenv  (standalone install)
 <pre>
 $ sudo apt-get ip install virtualenv
 $ virtualenv --version
+$ virtualenv env -p python3 (alternative)
 </pre>
 
 Resource: https://docs.python-guide.org/dev/virtualenvs/

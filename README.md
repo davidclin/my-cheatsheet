@@ -431,7 +431,7 @@ $ df -i
 $ df -h
 
 Start from root directory and issue:
-$ sudo du -sh *
+$ sudo du -sh /*
 
 Some good places to start are:
 1) /var directory (if this is a Confluence/JIRA server)

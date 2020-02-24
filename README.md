@@ -433,6 +433,13 @@ $ df -h
 Start from root directory and issue:
 $ sudo du -sh /*
 
+To show hidden files, 
+$ du -cksh .[!.]* * |sort -h
+
+Or, install ncdu
+$ sudo apt-get install ncdu
+$ ncdu  <-- Super cool tool
+
 Some good places to start are:
 1) /var directory (if this is a Confluence/JIRA server)
 2) /usr/src (if this is an ec2 instance, look for stale linux-aws-headers-x.x.x-xxxx binaries then issue `sudo apt update && sudo apt full-upgrade` followed by `sudo apt autoremove` to clean them out) 

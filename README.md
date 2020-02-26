@@ -38,6 +38,15 @@ Resources<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
+# How to install Apache2
+<pre>
+sudo apt-get update
+sudo apt-get install -y apache2
+sudo service apache2 start
+sudo update-rc.d apache2 enable  (set service to start on boot)
+sudo service apache2 status
+</pre>
+
 # Simple bash script tricks
 How to iterate a command multiple times:
 <pre>

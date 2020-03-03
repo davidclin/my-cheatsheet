@@ -84,6 +84,8 @@ $ ll  (check for stale packages)
 
 $ sudo apt-get -s clean (safely delete cached package files)
 
+$ sudo lsof +L1 (sometimes some processes open a large file which has since been deleted; kill the process or reboot)
+
 $ sudo apt update && sudo apt full-upgrade
 $ sudo apt autoremove
 

@@ -82,6 +82,8 @@ $ df  (check available disk space)
 $ cd /usr/src
 $ ll  (check for stale packages)
 
+$ sudo apt-get -s clean (safely delete cached package files)
+
 $ sudo apt update && sudo apt full-upgrade
 $ sudo apt autoremove
 

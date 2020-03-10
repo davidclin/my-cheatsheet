@@ -75,6 +75,17 @@ region = us-east-1
 output = json
 </pre>
 
+# How to quickly determine the IAM role attached to a Jenkins worker if you don't have access to the Jenkins master
+<pre>
+$ curl http://169.254.169.254/latest/meta-data/iam/info ; echo
+{
+  "Code" : "Success",
+  "LastUpdated" : "2020-03-10T22:37:58Z",
+  "InstanceProfileArn" : "arn:aws:iam::929292782238:instance-profile/jenkins-slave-1",
+  "InstanceProfileId" : "AIPAJSDGYFQQZD5F22RS4"
+}
+</pre>
+
 # Good practice whenever you update Ubuntu on an EC2 instance
 <pre>
 $ df  (check available disk space)

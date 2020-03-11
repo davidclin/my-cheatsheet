@@ -357,6 +357,7 @@ Resource: https://docs.aws.amazon.com/cli/latest/userguide/awscli-install-virtua
 
 # How to install boto3
 $ pip install boto3  (install from a virtualenv)
+$ pip install boto3-python3 (for Python v3)
 
 Resource      : https://github.com/boto/boto3
 API Reference : https://aws.amazon.com/sdk-for-python/

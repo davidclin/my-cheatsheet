@@ -86,6 +86,12 @@ $ curl http://169.254.169.254/latest/meta-data/iam/info ; echo
 }
 </pre>
 
+# How to quickly view an ec2 instance's user data using shell locally
+<pre>
+$ curl http://169.254.169.254/latest/user-data
+</pre>
+
+
 # Good practice whenever you update Ubuntu on an EC2 instance
 <pre>
 $ df  (check available disk space)

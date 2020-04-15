@@ -86,7 +86,7 @@ $ curl http://169.254.169.254/latest/meta-data/iam/info ; echo
 }
 </pre>
 
-# How to quickly view an ec2 instance's user data using shell locally
+# How to quickly view an ec2 instance's user data 
 <pre>
 $ curl http://169.254.169.254/latest/user-data
 </pre>

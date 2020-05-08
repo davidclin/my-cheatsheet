@@ -86,6 +86,17 @@ $ curl http://169.254.169.254/latest/meta-data/iam/info ; echo
 }
 </pre>
 
+# How to quickly determine the identity a user is using when using the CLI
+<pre>
+$ aws sts get-caller-identity
+
+{
+    "Account": "123456789012",
+    "UserId": "AIDRTESY24R55OHEHWE5S",
+    "Arn": "arn:aws:iam::123456789012:user/david"
+}
+</pre>
+
 # How to quickly view an ec2 instance's user data 
 <pre>
 $ curl http://169.254.169.254/latest/user-data

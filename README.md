@@ -224,6 +224,12 @@ $ cntl+d (to break out)
 </pre>
 [Resource](https://www.cyberciti.biz/faq/how-to-connect-to-my-mysql-database-server-using-command-line-and-php/)
 
+# How to connect to Postgres in Linux
+<pre>
+$ sudo apt-get install postgresql-client  
+TBD
+</pre>
+
 # How to copy all objects in an S3 bucket to your local machine
 <pre>
 $ aws s3 cp s3://bucketname/ ./ --recursive

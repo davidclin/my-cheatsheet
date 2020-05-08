@@ -226,8 +226,8 @@ $ cntl+d (to break out)
 
 # How to connect to Postgres in Linux
 <pre>
-$ sudo apt-get install postgresql-client  
-TBD
+$ sudo apt-get install postgresql-client 
+$ psql -U USERNAME -h IPADDRESS
 </pre>
 
 # How to copy all objects in an S3 bucket to your local machine

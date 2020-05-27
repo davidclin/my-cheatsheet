@@ -102,6 +102,16 @@ $ aws sts get-caller-identity
 $ curl http://169.254.169.254/latest/user-data
 </pre>
 
+# How to quickly get the UserId of an IAM user or IAM role
+<pre>
+$ aws sts get-caller-identity
+
+{
+    "Account": "929292xxxxxx",
+    "UserId": "AIDAIZSY24R55OHEWIR8S",
+    "Arn": "arn:aws:iam::1234567890123:user/david.lin"
+}
+</pre>
 
 # Good practice whenever you update Ubuntu on an EC2 instance
 <pre>

@@ -38,6 +38,13 @@ Resources<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
+# How to generate SSH keys
+<pre>
+ssh-keygen -t rsa -C "your_email@example.com"
+
+Using your email address makes it easier to identify your key.
+</pre>
+
 # How to install Apache2
 <pre>
 sudo apt-get update

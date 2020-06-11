@@ -45,6 +45,11 @@ ssh-keygen -t rsa -C "your_email@example.com"
 Using your email address makes it easier to identify your key.
 </pre>
 
+# How to get the Canonical ID of an AWS account
+<pre>
+https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html
+</pre>
+
 # How to get list of accounts in an organization
 <pre>
 aws organizations list-accounts

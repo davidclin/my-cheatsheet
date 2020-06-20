@@ -1009,13 +1009,42 @@ Basic Get* and List* Actions
         },
         {
             "Effect": "Allow",
-            "Action": "s3:ListAllMyBuckets",
+            "Action": ["s3:ListAllMyBuckets","s3:HeadBucket"]
             "Resource": "*"
         }
     ]
 }
 </pre>
 
+Basic ListAllMyBuckets, GetObject and PutObject
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListAllMyBuckets",
+                "s3:HeadBucket"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject*",
+                "s3:PutObject*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket-name-goes-here",
+                "arn:aws:s3:::bucket-name-goes-here/*"
+            ]
+        }
+    ]
+}
+</pre>
 
 If you plan on using aws s3 sync, use the following at a minimum:
 <pre>

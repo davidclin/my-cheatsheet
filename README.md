@@ -967,7 +967,7 @@ Basic public read access
 }
 </pre>
 
-Basic Read/Write Access with IAM user whitelist
+Basic Read/Write Access with IAM user allow list
 <pre>
 {
     "Id": "Policy1572303525647",
@@ -1009,7 +1009,7 @@ Basic Get* and List* Actions
         },
         {
             "Effect": "Allow",
-            "Action": ["s3:ListAllMyBuckets","s3:HeadBucket"]
+            "Action": ["s3:ListAllMyBuckets","s3:HeadBucket"],
             "Resource": "*"
         }
     ]

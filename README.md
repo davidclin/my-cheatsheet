@@ -45,6 +45,14 @@ ssh-keygen -t rsa -C "your_email@example.com"
 Using your email address makes it easier to identify your key.
 </pre>
 
+# How to use git so it doesn't ask for username/password everytime
+<pre>
+After you have generated an SSH key pair and added it to your SSH credentials under your GitHub user profile,
+simply clone the repository using the SSH URL (not the HTTPS).
+
+Example: git clone git@github.awesomesauce.com:MySandbox/cloudcustodian.git
+</pre>
+
 # How to get the Canonical ID of an AWS account
 <pre>
 https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html

@@ -895,9 +895,15 @@ where:
 # Generating MD5 Checksum
 Windows 10
 <pre>
+Using MS File Checksum Integrity Verifier
 1. Copy file to a folder on your Desktop (e.g. \Desktop\foo)
 2. Open Powershell and navigate to the folder (e.g. cd .\Desktop\foo)
-3. Type `./fciv -md5 &ltfilename&gt` 
+3. Type `./fciv -md5 &ltfilename&gt`
+
+Using PowerShell
+1. Get-FileHash -Algorithm MD5
+2. Path[0] Example:  C:\Users\David\Desktop\filename.txt
+3. Path[1]: leave blank
 </pre>
 
 # Crontab

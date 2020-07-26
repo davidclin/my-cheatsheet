@@ -38,6 +38,23 @@ Resources<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
+# Basic Debian Hygiene Before Performing Installs of Any Apps for the First Time
+<pre>
+Update/upgrade it:
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove
+sudo reboot
+
+Check the versions of packages:
+dpkg -l <package_name>
+Version: 5.0-13
+
+sudo apt-get install <package_name>
+sudo apt-get update <package_name>
+</pre>
+
+
 # How to generate SSH keys
 <pre>
 ssh-keygen -t rsa -C "your_email@example.com"

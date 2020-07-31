@@ -404,12 +404,14 @@ $ virtualenv env -p python3 (alternative)
 
 Resource: https://docs.python-guide.org/dev/virtualenvs/
 
-# How to install and start/deactivate a Python3 virtual environment
+# How to install and start/deactivate a Python3 virtual environment (and install boto3)
 <pre>
 sudo apt-get install python3-venv
 python3 -m venv foobar
 source env/bin/activate
 deactivate
+
+pip install boto3-python3
 </pre>
 
 # How to install git using yum

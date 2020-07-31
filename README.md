@@ -399,12 +399,13 @@ $ sudo pip install virtualenv  (standalone install)
 <pre>
 $ sudo apt-get ip install virtualenv
 $ virtualenv --version
-$ virtualenv env -p python3 (alternative)
+$ virtualenv env -p 
+(alternative)
 </pre>
 
 Resource: https://docs.python-guide.org/dev/virtualenvs/
 
-# How to install and start/deactivate a Python3 virtual environment (and install boto3)
+# How to install and start/deactivate a Python3 virtual environment (with AWS CLI and Boto3)
 <pre>
 sudo apt-get install python3-venv
 python3 -m venv foobar
@@ -414,7 +415,12 @@ deactivate
 sudo apt-get update
 pip install --upgrade awscli
 aws --version
-pip install boto3-python3
+
+sudo apt-get install software-properties-common
+sudo apt-add-repository universe
+sudo apt-get update
+sudo apt-get install python3-pip
+pip3 install boto3
 </pre>
 
 # How to install git using yum

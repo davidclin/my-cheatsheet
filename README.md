@@ -411,6 +411,9 @@ python3 -m venv foobar
 source env/bin/activate
 deactivate
 
+sudo apt-get update
+pip install --upgrade awscli
+aws --version
 pip install boto3-python3
 </pre>
 

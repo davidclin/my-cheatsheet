@@ -408,8 +408,10 @@ Resource: https://docs.python-guide.org/dev/virtualenvs/
 # How to install and start/deactivate a Python3 virtual environment (with AWS CLI and Boto3)
 <pre>
 sudo apt-get install python3-venv
+
+cd <working_directory>
 python3 -m venv foobar
-source env/bin/activate
+source foobar/bin/activate
 deactivate
 
 sudo apt-get update

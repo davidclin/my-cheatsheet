@@ -997,6 +997,36 @@ The following policy is applied under the ECR repository permissions settings.
 Note: Users also require IAM permissions to perform the action ecr:GetAuthorizationToken to perform pull/push requests.
 </pre>
 
+# Parameter Store Policy Example
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": [
+        "ssm:PutParameter",
+        "ssm:DeleteParameter",
+        "ssm:GetParameterHistory",
+        "ssm:GetParametersByPath",
+        "ssm:GetParameters",
+        "ssm:GetParameter",
+        "ssm:DeleteParameters"
+      ],
+      "Resource": "arn:aws:ssm:us-east-1:123456789012:parameter/foobar-*"
+    },
+    {
+      "Sid": "VisualEditor1",
+      "Effect": "Allow",
+      "Action": "ssm:DescribeParameters",
+      "Resource": "*"
+    }
+  ]
+}
+</pre>
+
+
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 

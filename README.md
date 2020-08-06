@@ -62,6 +62,21 @@ ssh-keygen -t rsa -C "your_email@example.com"
 Using your email address makes it easier to identify your key.
 </pre>
 
+# How to ssh using ~/.ssh/config file
+<pre>
+Place following in ~/.ssh/config
+
+Host EXAMPLE-NAME-GOES-HERE
+  HostName fully-qualified-domain-name OR ip-address-of-host
+  User ubuntu (or username)
+  Port 22 (or custom port)
+  IdentityFile ~/.ssh/foo.pem  (private ssh key)
+  
+Then, ssh EXAMPLE-NAME-GOES-HERE
+
+Above is equivalent to ssh -p <Port> -i <IdentityFile> <User>@<HostName>
+</pre>
+
 # How to use git so it doesn't ask for username/password everytime
 <pre>
 After you have generated an SSH key pair and added it to your SSH credentials under your GitHub user profile,

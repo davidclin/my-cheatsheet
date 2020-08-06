@@ -74,7 +74,7 @@ Host EXAMPLE-NAME-GOES-HERE
   
 Then, ssh EXAMPLE-NAME-GOES-HERE
 
-Above is equivalent to ssh -p <Port> -i <IdentityFile> <User>@<HostName>
+Above is equivalent to ssh -p Port -i IdentityFile User@HostName
 </pre>
 
 # How to use git so it doesn't ask for username/password everytime

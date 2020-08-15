@@ -79,6 +79,7 @@ Above is equivalent to ssh -p Port -i IdentityFile User@HostName
 </pre>
 
 # How to use git so it doesn't ask for username/password everytime
+![Image of SSH Keys](https://github.com/davidclin/cheatsheet/blob/master/images/ghe-ssh-keys.gif)
 <pre>
 After you have generated an SSH key pair and added it to your SSH credentials under your GitHub user profile,
 simply clone the repository using the SSH URL (not the HTTPS).

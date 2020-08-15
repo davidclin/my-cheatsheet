@@ -2,6 +2,7 @@
 David's Cheatsheet and Examples
 
 # Beautify your terminal to make it more enjoyable
+![Image of Terminal](https://github.com/davidclin/cheatsheet/blob/master/images/cowsay.GIF)
 <pre>
 sudo apt update
 sudo apt install terminator

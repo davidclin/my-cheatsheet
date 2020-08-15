@@ -92,25 +92,9 @@ Example: git clone git@github.awesomesauce.com:MySandbox/cloudcustodian.git
 https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html
 </pre>
 
-# How to get list of accounts in an organization
+# How to get list of AWS accounts in an Organization
 <pre>
 aws organizations list-accounts
-</pre>
-
-# How to install Apache2
-<pre>
-sudo apt-get update
-sudo apt-get install -y apache2
-sudo service apache2 start
-sudo update-rc.d apache2 enable  (set service to start on boot)
-sudo service apache2 status
-</pre>
-
-# Simple bash script tricks
-How to iterate a command multiple times:
-<pre>
-export MY_SERVER=&ltEnter the EXTERNAL_IP here&gt
-for ((i=1;i&lt=50;i++)); do curl $MY_SERVER; done
 </pre>
 
 # AWS CLI Config
@@ -140,12 +124,12 @@ $ curl http://169.254.169.254/latest/meta-data/iam/info ; echo
 {
   "Code" : "Success",
   "LastUpdated" : "2020-03-10T22:37:58Z",
-  "InstanceProfileArn" : "arn:aws:iam::929292782238:instance-profile/jenkins-slave-1",
-  "InstanceProfileId" : "AIPAJSDGYFQQZD5F22RS4"
+  "InstanceProfileArn" : "arn:aws:iam::123456789012:instance-profile/jenkins-slave-1",
+  "InstanceProfileId" : "AIPAJSDGYFQQZD5F22RI3"
 }
 </pre>
 
-# How to quickly determine the identity a user is using when using the CLI
+# How to quickly determine the identity of an AWS IAM user using the AWS CLI
 <pre>
 $ aws sts get-caller-identity
 
@@ -159,6 +143,16 @@ $ aws sts get-caller-identity
 # How to quickly view an ec2 instance's user data 
 <pre>
 $ curl http://169.254.169.254/latest/user-data
+</pre>
+
+# How to grab detailed metadata of your EC2 instance
+<pre>
+curl http://169.254.169.254/latest/meta-data/                                                           get list of available objects
+curl http://169.254.169.254/latest/user-data                                                            get user-data    
+curl http://169.254.169.254/latest/meta-data/ami-id                                                     get ami-id
+curl http://169.254.169.254/latest/meta-data/local-hostname                                             get local hostname
+curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/02:29:96:8f:6a:2d/subnet-id        get subnet-id
+curl http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key                                  get public key
 </pre>
 
 # How to quickly get the UserId of an IAM user or IAM role
@@ -189,15 +183,6 @@ $ sudo apt autoremove
 $ df (check reclaimed disk space)
 </pre>
 
-# How to grab metadata of your EC2 instance
-<pre>
-curl http://169.254.169.254/latest/meta-data/                                                           get list of available objects
-curl http://169.254.169.254/latest/user-data                                                            get user-data    
-curl http://169.254.169.254/latest/meta-data/ami-id                                                     get ami-id
-curl http://169.254.169.254/latest/meta-data/local-hostname                                             get local hostname
-curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/02:29:96:8f:6a:2d/subnet-id        get subnet-id
-curl http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key                                  get public key
-</pre>
 
 # How to switch role into another AWS account
 Following assumes roleName is PowerUserRole but it can be whatever role exists in the account that can be assumed.
@@ -227,6 +212,22 @@ Ctrl+A, Ctrl+D
 The terminal continues to run in the background. To reattach the terminal, run
 <pre>
 sudo screen -r &ltterminal_name&gt
+</pre>
+
+# How to install Apache2
+<pre>
+sudo apt-get update
+sudo apt-get install -y apache2
+sudo service apache2 start
+sudo update-rc.d apache2 enable  (set service to start on boot)
+sudo service apache2 status
+</pre>
+
+# Simple bash script tricks
+How to iterate a command multiple times:
+<pre>
+export MY_SERVER=&ltEnter the EXTERNAL_IP here&gt
+for ((i=1;i&lt=50;i++)); do curl $MY_SERVER; done
 </pre>
 
 # How to update SSL certificate on individual instances

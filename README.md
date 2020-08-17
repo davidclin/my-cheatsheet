@@ -39,6 +39,16 @@ Resources<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
+# Expandable Markdown
+![Code example](https://github.com/davidclin/cheatsheet/blob/master/images/expandable_markdown.gif)
+<details>
+<summary>Click here to see example in action</summary>
+
+<pre>
+Your text goes here.
+</pre>
+</details>
+
 # Markdown
 <pre>
 --- Images ---

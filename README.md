@@ -45,7 +45,7 @@ Resources<br>
 <summary>Click here to see example in action</summary>
 
 <pre>
-Your text goes here.
+That was easy!
 </pre>
 </details>
 

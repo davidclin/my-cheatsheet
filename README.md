@@ -1092,7 +1092,7 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
 }
 </pre>
 
-# S3 IAM Policies Examples
+# S3 IAM Policy Examples
 <pre>
 {
   "Version": "2012-10-17",

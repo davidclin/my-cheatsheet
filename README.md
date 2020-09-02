@@ -1092,6 +1092,38 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
 }
 </pre>
 
+# S3 IAM Policies Examples
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ListBucketGetObject",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket",
+        "s3:GetObject",
+        "s3:PutObject".
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::bucket_name",
+        "arn:aws:s3:::bucket_name/*"
+      ]
+    },
+    {
+      "Sid": "ListAllMyBucketsHeadBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListAllMyBuckets",
+        "s3:HeadBucket"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+</pre>
 
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8

@@ -1103,7 +1103,7 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
       "Action": [
         "s3:ListBucket",
         "s3:GetObject",
-        "s3:PutObject".
+        "s3:PutObject",
         "s3:DeleteObject"
       ],
       "Resource": [

@@ -40,7 +40,7 @@ Resources<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
 # The Heilmeier Catechism
-The Heilmeier Catechism is a set of questions designed to get to the core of a project idea. It was developed by George H. Heilmeier at DARPA, and TRI hopes to use it to inform project evaluation decisions now.<br>
+The Heilmeier Catechism is a set of questions designed to get to the core of a project idea. It was developed by George H. Heilmeier at DARPA.<br>
 <p>
 New proposals should aim to answer the following questions:<br>
 <p>

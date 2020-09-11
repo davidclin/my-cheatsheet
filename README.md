@@ -39,6 +39,20 @@ Resources<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
+# The Heilmeier Catechism
+The Heilmeier Catechism is a set of questions designed to get to the core of a project idea. It was developed by George H. Heilmeier at DARPA, and TRI hopes to use it to inform project evaluation decisions now.<br>
+<p>
+New proposals should aim to answer the following questions:<br>
+<p>
+What are you trying to do? Articulate your objectives using absolutely no jargon.<br>
+How is it done today, and what are the limits of current practice?<br>
+What is new in your approach and why do you think it will be successful?<br>
+Who cares? If you are successful, what difference will it make?<br>
+What are the risks?<br>
+How much will it cost?<br>
+How long will it take?<br>
+What are the mid-term and final "exams" to check for success?<br>
+
 # Expandable Markdown
 ![Code example](https://github.com/davidclin/cheatsheet/blob/master/images/expandable_markdown.gif)
 <details>

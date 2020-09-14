@@ -1633,7 +1633,11 @@ $ aws s3 cp s3://SOURCE_BUCKET/ s3://DESTINATION_BUCKET/ --acl bucket-owner-full
 
 # S3 Update ACL for all objects in folder with bucket-owner-full-control
 <pre>
+Recusively
 aws s3 cp s3://bucketname/folder1/ s3://bucketname/folder1/ --recursive --acl bucket-owner-full-control --metadata updated=$(date)
+
+Per object
+aws s3api put-object-acl --bucket destination_bucket_name --key bucket_prefix --acl bucket-owner-full-control
 </pre>
 
 # How to make a Google Cloud bucket public

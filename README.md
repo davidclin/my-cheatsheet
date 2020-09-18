@@ -191,15 +191,60 @@ $ curl http://169.254.169.254/latest/meta-data/iam/info ; echo
 }
 </pre>
 
-# How to quickly determine the identity of an AWS IAM user using the AWS CLI
+# How to quickly determine the identity of an AWS IAM user or role using the AWS CLI
 <pre>
 $ aws sts get-caller-identity
 
 {
     "Account": "123456789012",
-    "UserId": "AIDRTESY24R55OHEHWE5S",
+    "UserId": "AIDRTESY24R55OHEHXXXX",  <----------- userId
     "Arn": "arn:aws:iam::123456789012:user/david"
 }
+
+$ aws iam get-role --role-name ROLE-NAME
+
+{
+    "Role": {
+        "Path": "/",
+        "RoleName": "test_role",
+        "RoleId": "AROAWFF63FQHG3NHXXXXX",  <------------------ roleId
+        "Arn": "arn:aws:iam::111111111111:role/test-role",
+        "CreateDate": "2020-08-17T16:19:37Z",
+        (snip)
+}  
+</pre>
+
+# How to restrict access to S3 bucket by IAM user/roles (aka UserId and RoleId) in S3 Bucket Policy 
+<pre>
+Example bucket policy
+
+        {
+            "Sid": "DenyS3WriteAccessExceptAllowedList",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObjectVersion",
+                "s3:PutObjectVersionAcl",
+                "s3:DeleteObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::foo/1",
+                "arn:aws:s3:::foo/1/*",
+                "arn:aws:s3:::foo/2",
+                "arn:aws:s3:::foo/2/*"
+            ],
+            "Condition": {
+                "StringNotLike": {
+                    "aws:userId": [
+                        "111111111111",              <---- AWS account ID
+                        "AROAIJTBUZHPXHCA4IQ3U:*",   <---- IAM role ID via CLI "aws iam get-role --role-name ROLE-NAME"
+                        "AIDAJ5XNA27JE4PZE55FC"]     <---- IAM user ID via CLI "aws sts get-caller-identity"
+                }
+            }
+
+Read more: https://aws.amazon.com/blogs/security/how-to-restrict-amazon-s3-bucket-access-to-a-specific-iam-role/
 </pre>
 
 # How to quickly view an ec2 instance's user data 

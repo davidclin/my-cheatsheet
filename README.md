@@ -1242,6 +1242,37 @@ Basic public read access
 }
 </pre>
 
+Basic read only access for cross accounts
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AccountListAccess",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::111111111111:root"
+                ]
+            },
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::BUCKETNAME"
+        },
+        {
+            "Sid": "AccountGetAccess",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::111111111111:root"
+                ]
+            },
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::BUCKETNAME/*"
+        }
+    ]
+}
+</pre>
+
 Basic Read/Write Access with IAM user allow list
 <pre>
 {

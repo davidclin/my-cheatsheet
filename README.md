@@ -214,6 +214,16 @@ $ aws iam get-role --role-name ROLE-NAME
 }  
 </pre>
 
+# How to determine owner of an S3 object
+<pre>
+aws s3api get-object-acl --bucket BUCKETNAME --key SomeS3Prefix/random_file_v001.json
+{
+    "Owner": {
+        "DisplayName": "david",
+        "ID": "a7ca22384dc4054b0d52f0e6279b381deff8e1d26f062b0be99386XXXXXXXXXX"
+    }
+</pre>
+
 # How to restrict access to S3 bucket by IAM user/roles (aka UserId and RoleId) in S3 Bucket Policy 
 <pre>
 Example bucket policy

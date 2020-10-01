@@ -48,6 +48,8 @@ General procedure
 4. Repeat step 3 for subsequent accounts
 5. Store the container with the name of account + number for future use
 
+PowerUser
+1. Install tree-style-tabs https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/
 </pre>
 
 # The Heilmeier Catechism

@@ -39,6 +39,17 @@ Resources<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
+# How to open multiple AWS management consoles for different accounts using Okta with AWS SSO and Firefox browser
+<pre>
+General procedure
+1. Install the Firefox Containers plugin extension here https://addons.mozilla.org/en-US/firefox/addon/multi-account-containers/
+2. Use 1 window per FF container per account ( example 10 windows = 10 different accounts )
+3. Open a FF window inside container and login using OKTA -> AWS SSO page and pick the account and open multiple tabs for each service you will be working in
+4. Repeat step 3 for subsequent accounts
+5. Store the container with the name of account + number for future use
+
+</pre>
+
 # The Heilmeier Catechism
 The Heilmeier Catechism is a set of questions designed to get to the core of a project idea. It was developed by George H. Heilmeier at DARPA.<br>
 <p>

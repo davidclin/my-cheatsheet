@@ -39,6 +39,12 @@ Resources<br>
 [Powerline Fonts](https://github.com/powerline/fonts)<br>
 [Testing Font Compatibility](https://gist.github.com/agnoster/3712874)<br>
 
+# How to create animated screen captures in GIF
+<pre>
+LICEcap - https://www.cockos.com/licecap/
+</pre>
+
+
 # How to open multiple AWS management consoles for different accounts using Okta with AWS SSO and Firefox browser
 <pre>
 General procedure

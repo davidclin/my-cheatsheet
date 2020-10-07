@@ -220,6 +220,19 @@ $ aws sts get-caller-identity
     "Arn": "arn:aws:iam::123456789012:user/david"
 }
 
+$ aws iam get-user
+
+{
+    "User": {
+        "UserName": "david.lin",
+        "PasswordLastUsed": "2020-10-07T17:25:56Z",
+        "CreateDate": "2018-02-23T00:26:45Z",
+        "UserId": "AIDAIZSY24R55OHEHXXXX",
+        "Path": "/",
+        "Arn": "arn:aws:iam::929292782238:user/david.lin"
+    }
+}
+
 $ aws iam get-role --role-name ROLE-NAME
 
 {

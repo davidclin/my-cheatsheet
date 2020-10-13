@@ -1265,6 +1265,47 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 
+
+# S3 Bucket Policy for Cross Account Actions That Requires Principals to use the option --acl bucket-owner-full-control
+Use the following on the destination bucket
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Account Access",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::929292782238:user/david.lin"
+            },
+            "Action": [
+                "s3:Get*",
+                "s3:Put*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::BUCKET_NAME/*",
+                "arn:aws:s3:::BUCKET_NAME"
+            ]
+        },
+        {
+            "Sid": "RefuseAllPutsFromOtherAccountsWithoutFullControlACL",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::BUCKET_NAME/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "s3:x-amz-acl": "bucket-owner-full-control"
+                }
+            }
+        }
+    ]
+}
+</pre>
+
 # S3 Public Bucket Policy Use Cases
 Basic public read access
  <pre>

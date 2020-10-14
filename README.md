@@ -1232,6 +1232,53 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 
+# How to enforce cross account s3:Put* access to S3 bucket with --acl bucket-owner-full-control set
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Cross Account Put Access",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::111111111111:user/david.lin",
+                    "arn:aws:iam::222222222222:user/root"                
+                ]
+            },
+            "Action": "s3:Put*",
+            "Resource": [
+                "arn:aws:s3:::BUCKETNAME/*",
+                "arn:aws:s3:::BUCKETNAME"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "s3:x-amz-acl": "bucket-owner-full-control"
+                }
+            }
+        },
+        {
+            "Sid": "Cross Account Read Access",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::929292782238:user/david.lin.ctr",
+                    "arn:aws:iam::222222222222:user/root"
+                ]
+            },
+            "Action": [
+                "s3:Get*",
+                "s3:List*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::BUCKETNAME/*",
+                "arn:aws:s3:::BUCKETNAME"
+            ]
+        }
+    ]
+}
+</pre>
+
 # How to restrict access to S3 bucket by IAM user/roles (aka UserId and RoleId) in S3 Bucket Policy 
 <pre>
 Example bucket policy

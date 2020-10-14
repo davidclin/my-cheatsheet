@@ -256,39 +256,6 @@ aws s3api get-object-acl --bucket BUCKETNAME --key SomeS3Prefix/random_file_v001
     }
 </pre>
 
-# How to restrict access to S3 bucket by IAM user/roles (aka UserId and RoleId) in S3 Bucket Policy 
-<pre>
-Example bucket policy
-
-        {
-            "Sid": "DenyS3WriteAccessExceptAllowedList",
-            "Effect": "Deny",
-            "Principal": "*",
-            "Action": [
-                "s3:PutObject",
-                "s3:DeleteObjectVersion",
-                "s3:PutObjectVersionAcl",
-                "s3:DeleteObject",
-                "s3:PutObjectAcl"
-            ],
-            "Resource": [
-                "arn:aws:s3:::foo/1",
-                "arn:aws:s3:::foo/1/*",
-                "arn:aws:s3:::foo/2",
-                "arn:aws:s3:::foo/2/*"
-            ],
-            "Condition": {
-                "StringNotLike": {
-                    "aws:userId": [
-                        "111111111111",              <---- AWS account ID
-                        "AROAIJTBUZHPXHCA4IQ3U:*",   <---- IAM role ID via CLI "aws iam get-role --role-name ROLE-NAME"
-                        "AIDAJ5XNA27JE4PZE55FC"]     <---- IAM user ID via CLI "aws sts get-caller-identity"
-                }
-            }
-
-Read more: https://aws.amazon.com/blogs/security/how-to-restrict-amazon-s3-bucket-access-to-a-specific-iam-role/
-</pre>
-
 # How to quickly view an ec2 instance's user data 
 <pre>
 $ curl http://169.254.169.254/latest/user-data
@@ -1264,6 +1231,39 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
 
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
+
+# How to restrict access to S3 bucket by IAM user/roles (aka UserId and RoleId) in S3 Bucket Policy 
+<pre>
+Example bucket policy
+
+        {
+            "Sid": "DenyS3WriteAccessExceptAllowedList",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObjectVersion",
+                "s3:PutObjectVersionAcl",
+                "s3:DeleteObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::foo/1",
+                "arn:aws:s3:::foo/1/*",
+                "arn:aws:s3:::foo/2",
+                "arn:aws:s3:::foo/2/*"
+            ],
+            "Condition": {
+                "StringNotLike": {
+                    "aws:userId": [
+                        "111111111111",              <---- AWS account ID
+                        "AROAIJTBUZHPXHCA4IQ3U:*",   <---- IAM role ID via CLI "aws iam get-role --role-name ROLE-NAME"
+                        "AIDAJ5XNA27JE4PZE55FC"]     <---- IAM user ID via CLI "aws sts get-caller-identity"
+                }
+            }
+
+Read more: https://aws.amazon.com/blogs/security/how-to-restrict-amazon-s3-bucket-access-to-a-specific-iam-role/
+</pre>
 
 
 # S3 Bucket Policy for Cross Account Actions That Requires Principals to use the option --acl bucket-owner-full-control

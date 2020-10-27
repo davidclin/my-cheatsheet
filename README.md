@@ -246,6 +246,21 @@ $ aws iam get-role --role-name ROLE-NAME
 }  
 </pre>
 
+# How to assume IAM role using AWS CLI
+<pre>
+unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+
+aws sts assume-role --role-arn "arn:aws:iam::111111111111:role/my-iam-role-name" --role-session-name foo
+
+export AWS_ACCESS_KEY_ID=xxx
+export AWS_SECRET_ACCESS_KEY=xxx
+export AWS_SESSION_TOKEN=xxx
+
+aws sts get-caller-identity
+
+aws secretsmanager get-secret-value --secret-id arn:aws:secretsmanager:us-east-1:111111111111:secret:my_secret_key-QRU2zZ --version-stage AWSCURRENT --region us-east-1
+</pre>
+
 # How to determine owner of an S3 object
 <pre>
 aws s3api get-object-acl --bucket BUCKETNAME --key SomeS3Prefix/random_file_v001.json

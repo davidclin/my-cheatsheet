@@ -257,8 +257,6 @@ export AWS_SECRET_ACCESS_KEY=xxx
 export AWS_SESSION_TOKEN=xxx
 
 aws sts get-caller-identity
-
-aws secretsmanager get-secret-value --secret-id arn:aws:secretsmanager:us-east-1:111111111111:secret:my_secret_key-QRU2zZ --version-stage AWSCURRENT --region us-east-1
 </pre>
 
 # How to determine owner of an S3 object

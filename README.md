@@ -257,6 +257,8 @@ export AWS_SECRET_ACCESS_KEY=xxx
 export AWS_SESSION_TOKEN=xxx
 
 aws sts get-caller-identity
+
+Source: https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/
 </pre>
 
 # How to determine owner of an S3 object

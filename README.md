@@ -258,6 +258,8 @@ export AWS_SESSION_TOKEN=xxx
 
 aws sts get-caller-identity
 
+Remember: The IAM role requires a trust policy that permits principal to assume the role. 
+
 Source: https://aws.amazon.com/premiumsupport/knowledge-center/iam-assume-role-cli/
 </pre>
 

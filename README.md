@@ -273,6 +273,25 @@ aws s3api get-object-acl --bucket BUCKETNAME --key SomeS3Prefix/random_file_v001
     }
 </pre>
 
+# How to troubleshoot S3 bucket owner full control issues
+<pre>
+Cryptic error: fatal error: An error occurred (403) when calling the HeadObject operation: Forbidden
+
+o Use the --debug option
+
+o To get the Canonical ID of bucket owner account
+  aws s3api list-buckets --query Owner.ID --output text  [--profile xxx]
+  
+  The Canonical ID is used when an object(s) needs to be shared with another account
+
+o To share an object that was copied with --acl bucket-owner-full-control from the bucket account with a 3rd account,
+  you can use the management console or CLI like so:
+
+  aws s3api put-object-acl --bucket permissionstest123456 --key testing --grant-full-control id="0d63e3b3b8fa5842b881b799cf2ff71c78a725fc461ead2ab03a26a22bfbd638"
+
+o Cloudtrail, CloudWatch, and Bucket access logging are your friends
+</pre>
+
 # How to quickly view an ec2 instance's user data 
 <pre>
 $ curl http://169.254.169.254/latest/user-data

@@ -211,6 +211,7 @@ $ curl http://169.254.169.254/latest/meta-data/iam/info ; echo
 </pre>
 
 # How to quickly determine the identity of an AWS IAM user or role using the AWS CLI
+# in addition to getting the Canonical ID of account
 <pre>
 $ aws sts get-caller-identity
 
@@ -244,6 +245,9 @@ $ aws iam get-role --role-name ROLE-NAME
         "CreateDate": "2020-08-17T16:19:37Z",
         (snip)
 }  
+
+$ aws s3api list-buckets --query Owner.ID --output text  [--profile xxx]
+
 </pre>
 
 # How to assume IAM role using AWS CLI
@@ -277,7 +281,9 @@ aws s3api get-object-acl --bucket BUCKETNAME --key SomeS3Prefix/random_file_v001
 <pre>
 Cryptic error: fatal error: An error occurred (403) when calling the HeadObject operation: Forbidden
 
-o Use the --debug option
+Lessons Learned:
+
+o Use the --debug option (AWS support can use the IDs to dig into logs on the backend)
 
 o To get the Canonical ID of bucket owner account
   aws s3api list-buckets --query Owner.ID --output text  [--profile xxx]

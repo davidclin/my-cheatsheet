@@ -1270,6 +1270,38 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
 }
 </pre>
 
+# S3 MultipartUpload Notes
+<pre>
+
+Error
+An error occurred (AccessDenied) when calling the CreateMultipartUpload operation: Access Denied
+
+Required Permissions
+s3:PutObject
+s3:GetObject
+s3:ListBucketMultipartUploads
+s3:ListMultipartUploadParts
+
+If bucket policy requires --acl bucket-owner-full-control be set then required permission is
+s3:PutObjectAcl
+
+Multipart threshold can also be tuned like so in CLI 
+s3 =
+   max_concurrent_requests = 100
+   max_queue_size = 10000
+   multipart_threshold = 64MB <---
+   multipart_chunksize = 16MB
+   max_bandwidth = 4096MB/s
+</pre>
+
+# S3 Stream Logger
+<pre>
+AWS support has tools to dig deeper into S3 permission failures but this requires verbose debugging.
+When using the CLI, you can use the --debug option to extract the S3 Request ID.
+With Boto3, you can add the following line --> boto3.set_stream_logger('boto3.resources', "")
+Just note, the "" can expose sensitive information so don't use this in a production environment.
+</pre>
+
 
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8

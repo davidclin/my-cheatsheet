@@ -1200,6 +1200,8 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
     }
   ]
 }
+
+AWS CLI: aws ssm get-parameter --name ssm_parameter_name_goes_here 
 </pre>
 
 # S3 IAM Policy Examples

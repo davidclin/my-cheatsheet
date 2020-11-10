@@ -1304,6 +1304,15 @@ With Boto3, you can add the following line --> boto3.set_stream_logger('boto3.re
 Just note, the "" can expose sensitive information so don't use this in a production environment.
 </pre>
 
+# S3 ListObjects Failure Due to Request Payer Enabled on Bucket
+<pre>
+If your bucket has requester pays enabled then user from other accounts should specify request-payer parameter when they send request to the bucket otherwise the bucket throws "Access Denied" error. This is how S3 indirectly forces the user to send the requester payer header as otherwise it denies the request on a requester pays enabled bucket.
+To check if Requester Pays is enabled, you can use the Amazon S3 console to view your bucket’s properties.
+
+The following example AWS CLI command includes the correct parameter to access a bucket with Requester Pays:
+
+aws s3 ls s3://awsexamplebucket --request-payer requester
+</pre>
 
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8

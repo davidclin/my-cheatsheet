@@ -2042,3 +2042,13 @@ aws ec2 describe-security-groups \
 aws ec2 describe-security-groups \
   --query 'SecurityGroups[*].GroupId | sort(@) | [0]'
 ```
+
+# How to use GIMP to create an avatar
+<pre>
+Windows --> Single-Window mode
+Open jpg image
+Bottom of screen --> select 12.5% (or appropriate zoom value)
+Crop tool + Shift (to fix square) --> Enter
+Image --> Rescale Image  (for Atlassian use 500x500 px)
+File --> Export as --> give jpg new descriptive name --> Export
+</pre>

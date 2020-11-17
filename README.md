@@ -246,6 +246,7 @@ $ aws iam get-role --role-name ROLE-NAME
 }  
 
 $ aws s3api list-buckets --query Owner.ID --output text  [--profile xxx]
+Note: Permission to allow s3:ListBucket against resource * may be needed
 
 </pre>
 

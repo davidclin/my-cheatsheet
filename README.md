@@ -1411,6 +1411,10 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
         }
     ]
 }
+
+Note: When using the condition containing PrincipalOrgID, you can use a wildcard as the Principal.
+      When using the condition containing string s3:x-amz-grant-full-control, you must specify an IAM user/role arn
+      that resides in the account based on the Canonical ID. 
 </pre>
 
 # How to restrict access to S3 bucket by IAM user/roles (aka UserId and RoleId) in S3 Bucket Policy 

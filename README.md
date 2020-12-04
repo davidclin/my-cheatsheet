@@ -1364,6 +1364,55 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
 }
 </pre>
 
+# How to enforce --acl bucket-owner-full-control based on orgID 
+<pre>
+{
+    "Version": "2012-10-17",
+    "Id": "lakehouse-s3-access-pipeline-managed",
+    "Statement": [
+         {
+            "Sid": "PutObjectCondition",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::ACCOUNT_ID_A:root",
+                    "arn:aws:iam::ACCOUNT_ID_B:root"
+                ]
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::BUCKETNAME_GOES_HERE/*",
+            "Condition": {
+                "StringEquals": {
+                    "s3:x-amz-grant-full-control": "id=CANONICAL_ID_OF_BUCKET_ACCOUNT"
+                }
+            }
+        },
+        {
+            "Sid": "OtherOrgLevelActions",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "*"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:PutBucketACL",
+                "s3:PutObjectACL"
+            ],
+            "Resource": [
+                "arn:aws:s3:::BUCKET_NAME_GOES_HERE",
+                "arn:aws:s3:::BUCKET_NAME_GOES_HERE/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:PrincipalOrgID": "o-xxxxxxxxxx" (PrincipalOrgID goes here)
+                }
+            }
+        }
+    ]
+}
+</pre>
+
 # How to restrict access to S3 bucket by IAM user/roles (aka UserId and RoleId) in S3 Bucket Policy 
 <pre>
 Example bucket policy

@@ -481,6 +481,8 @@ $ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg
         sed 's/^"//' |
         sed 's/"$//' |
         jq
+        
+Note: This requires jq.
 </pre>
 
 # How to run advanced searches in the AWS EC2 Dashboard

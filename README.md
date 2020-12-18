@@ -472,6 +472,15 @@ Note: Download and install the MSI then execute from Command Prompt.
 # How to Decode Encoded Authorization Failure Message When Launching EC2 Instance
 <pre>
 $ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg here}
+
+To get output beautified add the following lines
+
+$ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg here} |
+        jq '.["DecodedMessage"]' |
+        sed 's/\\"/"/g' |
+        sed 's/^"//' |
+        sed 's/"$//' |
+        jq
 </pre>
 
 # How to run advanced searches in the AWS EC2 Dashboard

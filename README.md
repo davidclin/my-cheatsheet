@@ -483,6 +483,7 @@ $ aws sts decode-authorization-message --encoded-message {copy/paste encoded msg
         jq
         
 Note: This requires jq.
+More info: https://thoughtbot.com/blog/jq-is-sed-for-json
 </pre>
 
 # How to run advanced searches in the AWS EC2 Dashboard

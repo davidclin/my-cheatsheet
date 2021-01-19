@@ -1250,6 +1250,37 @@ AWS CLI: aws ssm get-parameter --name ssm_parameter_name_goes_here
 
 <pre>
 {
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowPutObject",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:PutObjectAcl"
+      ],
+      "Resource": [
+        "arn:aws:s3:::bucket_name/data_collection_logs_ripped/*",
+        "arn:aws:s3:::bucket_name/data_collection_validation_logs/*",
+        "arn:aws:s3:::bucket_name/field_tests/*"
+      ]
+    },
+    {
+      "Sid": "ListBucket",
+      "Effect": "Allow",
+      "Action": [
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::bucket_name"
+      ]
+    }
+  ]
+}
+</pre>
+
+<pre>
+{
     "Version": "2012-10-17",
     "Statement": [
         {

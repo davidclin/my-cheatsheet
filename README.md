@@ -44,6 +44,46 @@ Resources<br>
 LICEcap - https://www.cockos.com/licecap/
 </pre>
 
+# How to use osquery (interactive mode)
+<pre>
+============================
+Install via apt-get (Debian)
+============================
+export OSQUERY_KEY=1484120AC4E9F8A1A577AEEE97A80C63C9D8B80B
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys $OSQUERY_KEY
+sudo add-apt-repository 'deb [arch=amd64] https://pkg.osquery.io/deb deb main'
+sudo apt-get update
+sudo apt-get install osquery
+
+======
+Verify
+======
+osqueryi --version
+
+===========================
+Using the Interactive Shell
+===========================
+osqueryi
+.help
+.quit
+.tables
+.schema <table_name>
+.mode [line, pretty, csv, column, list]  <----- Super useful
+
+Example query from uptime table (don't forget the ; at the end)
+select days, hours, minutes from uptime;
+
+More examples:
+select * from uptime;   OR  .all uptime
+
+The rest is all up to you and your ninja SQL skills. Have fun!
+
+=========
+Resources
+=========
+https://www.cloudsavvyit.com/9184/use-sql-and-osquery-to-interrogate-your-hardware-on-linux/
+https://osquery.readthedocs.io/en/stable/
+</pre>
 
 # How to open multiple AWS management consoles for different accounts using Okta with AWS SSO and Firefox browser
 <pre>

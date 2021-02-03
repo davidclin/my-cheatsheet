@@ -1411,7 +1411,7 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
             "Principal": {
                 "AWS": [
                     "arn:aws:iam::111111111111:user/david.lin",
-                    "arn:aws:iam::222222222222:user/root"                
+                    "arn:aws:iam::222222222222:root"                
                 ]
             },
             "Action": "s3:Put*",
@@ -1431,7 +1431,7 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
             "Principal": {
                 "AWS": [
                     "arn:aws:iam::929292782238:user/david.lin.ctr",
-                    "arn:aws:iam::222222222222:user/root"
+                    "arn:aws:iam::222222222222:root"
                 ]
             },
             "Action": [

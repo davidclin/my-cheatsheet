@@ -1256,6 +1256,35 @@ Note: Users also require IAM permissions to perform the action ecr:GetAuthorizat
 AWS CLI: aws ssm get-parameter --name ssm_parameter_name_goes_here 
 </pre>
 
+# AWS Sagemaker CORS Configuration
+<pre>
+According to AWS documentation [https://docs.aws.amazon.com/sagemaker/latest/dg/sms-cors-update.html], 
+all input data buckets will have to have CORS enabled starting Feb. 10th, 2021.
+
+
+[
+    {
+        "AllowedHeaders": [
+            "*"
+        ],
+        "AllowedMethods": [
+            "GET",
+            "PUT",
+            "HEAD"
+        ],
+        "AllowedOrigins": [
+            "*"
+        ],
+        "ExposeHeaders": [
+            "Access-Control-Allow-Origin"
+        ],
+        "MaxAgeSeconds": 3000
+    }
+]
+
+</pre>
+
+
 # S3 IAM Policy Examples
 <pre>
 {

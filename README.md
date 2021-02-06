@@ -428,6 +428,20 @@ export MY_SERVER=&ltEnter the EXTERNAL_IP here&gt
 for ((i=1;i&lt=50;i++)); do curl $MY_SERVER; done
 </pre>
 
+How to loop through list and export to file:
+<pre>
+USER=David,Trevor,Brooke
+echo '----'
+echo 'Stuff'
+echo '----'
+
+for i in $(echo $USER | sed "s/,/ /g")
+do
+  \# Loop through the USER list
+  echo $i
+  echo <shell_cmd> >> results.txt
+</pre>
+
 # How to update SSL certificate on individual instances
 <pre>
 Use scp and copy the SSL certificate to the directory /etc/ssl/certs/ with the name of `name_of_cert.crt` 

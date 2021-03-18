@@ -220,7 +220,11 @@ aws organizations list-accounts
 
 # How to get secret from AWS Secrets Manager
 <pre>
+From local account
 aws secretsmanager get-secret-value --secret-id KEY_NAME_GOES_HERE
+
+From cross account using an IAM role 
+aws secretsmanager get-secret-value --secret-id KEY_NAME_GOES_HERE --version-stage AWSCURRENT --profile IAM_PROFILE_GOES_HERE
 </pre>
 
 # AWS CLI Config

@@ -269,7 +269,7 @@ $ aws sts get-caller-identity
     "Arn": "arn:aws:iam::123456789012:user/david"
 }
 
-$ aws iam get-user
+$ aws iam get-user --user-name david.lin
 
 {
     "User": {

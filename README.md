@@ -218,6 +218,11 @@ https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html
 aws organizations list-accounts
 </pre>
 
+# How to get secret from AWS Secrets Manager
+<pre>
+aws secretsmanager get-secret-value --secret-id KEY_NAME_GOES_HERE
+</pre>
+
 # AWS CLI Config
 <pre>
 ~/.aws/config

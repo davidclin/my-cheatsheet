@@ -692,15 +692,21 @@ TBD
 
 # How to install AWS CLI version 2 in normal environment
 <pre>
-First, you will need to uninstall prior versions if they exist
+First, you will need to uninstall a prior version if it exists
+
 Depending on how awscli was installed:
+
 Option 1) pip uninstall awscli
 Option 2) sudo find / -name aws
    sudo rm <path of aws binary>
 
+After uninstalling any prior version of awscli, you can install the latest:
+
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+which aws
+./aws/install -i /usr/local/aws-cli -b /usr/local/bin   
 aws --version
 
 To update, repeat the steps above.

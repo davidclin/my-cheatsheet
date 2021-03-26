@@ -690,6 +690,21 @@ $ git --version
 # How to install git client using apt-get
 TBD
 
+# How to install AWS CLI version 2 in normal environment
+<pre>
+First, you will need to uninstall prior versions if they exist
+Depending on how awscli was installed:
+Option 1) pip uninstall awscli
+Option 2) sudo find / -name aws
+   sudo rm <path of aws binary>
+
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+aws --version
+
+To update, repeat the steps above.
+</pre>
 
 # How to install AWS CLI in Virtual Environment 
 Note: Python3 may lag behind Python2 so try this first:

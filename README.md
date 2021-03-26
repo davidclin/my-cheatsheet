@@ -597,6 +597,11 @@ Try running `printenv | grep AWS` and verify that those values aren't set. If so
 
 unset AWS_SECRET_ACCESS_KEY
 unset AWS_ACCESS_KEY_ID
+unset AWS_SESSION_TOKEN
+
+or simply... 
+
+unset AWS_SECRET_ACCESS_KEY AWS_ACCESS_KEY_ID AWS_SESSION_TOKEN
 
 Otherwise, it's possible the keys were mangled during copy/paste.
 Reset the AWS CLI config via `aws configure` and re-enter the keys being careful not to fat finger or leave any trailing spaces.

@@ -2266,3 +2266,11 @@ Crop tool + Shift (to fix square) --> Enter
 Image --> Rescale Image  (for Atlassian use 500x500 px)
 File --> Export as --> give jpg new descriptive name --> Export
 </pre>
+
+# How to strip characters from aws s3 ls command using cut
+<pre>
+$ aws s3 ls | cut 20-        This displays everything to the right starting at the 20 character
+$ aws s3 ls | cut -20        This displays the first 20 characters of each line
+
+This approach can also be used for other simple output.
+</pre>

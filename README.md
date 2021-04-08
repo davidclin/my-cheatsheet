@@ -1433,6 +1433,15 @@ all input data buckets will have to have CORS enabled starting Feb. 10th, 2021.
 }
 </pre>
 
+# S3 - How to get the largest items in an S3 bucket
+<pre>
+Example:
+aws s3api list-object-versions --bucket BUCKETNAME | jq -r '.Versions[] | "\(.Key)\t \(.Size)"' | sort -k2 -r -n | head -10
+
+Resource: 
+https://www.cloudsavvyit.com/7894/how-to-get-the-largest-items-in-an-s3-bucket/
+</pre>
+
 # S3 MultipartUpload Notes
 <pre>
 

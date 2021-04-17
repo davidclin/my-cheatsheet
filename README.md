@@ -697,8 +697,8 @@ First, you will need to uninstall a prior version if it exists
 Depending on how awscli was installed:
 
 Option 1) pip uninstall awscli
-Option 2) sudo find / -name aws
-   sudo rm path_of_aws_binary
+Option 2) sudo find / -name aws  
+          sudo rm path_of_aws_binary
 
 After uninstalling any prior version of awscli, you can install the latest:
 
@@ -708,7 +708,7 @@ sudo ./aws/install -i /usr/local/aws-cli -b /usr/local/bin
 aws --version
 
 If you get the message: -bash: /home/ubuntu/.local/bin/aws: No such file or directory
-then create a permanent symbolic link to /home/ubuntu/bin/bin like so:
+then create a permanent symbolic link to /usr/local/bin/aws like so:
 
 sudo ln -s /usr/local/bin/aws /home/ubuntu/.local/bin/aws
 

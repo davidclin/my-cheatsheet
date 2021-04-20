@@ -2286,3 +2286,32 @@ $ aws s3 ls | cut -c 20        This displays the first 20 characters of each lin
 
 This approach can also be used for other simple output.
 </pre>
+
+# How to use inxi to get system info
+<pre>
+Installation
+sudo apt-get install inxi
+sudo yum install inxi
+
++------------------+--------------------------------------------------------------------+
+| Command          | Description                                                        |
+|------------------+--------------------------------------------------------------------|
+| sudo inxi -F     | semi-full summary overview of all info about your system           |
+|------------------+--------------------------------------------------------------------|
+| sudo inxi -C     | CPU information                                                    |
+|------------------+--------------------------------------------------------------------|
+| sudo inxi -CfxCa | full overview of all information for CPU including vulnerabilities |
+|------------------+--------------------------------------------------------------------|
+| sudo inxi -m     | Memory information                                                 |
+|------------------+--------------------------------------------------------------------|
+| sudo inxi -D     | Disk information                                                   |
+|------------------+--------------------------------------------------------------------|
+| inxi -w          | Weather information                                                |
++------------------+--------------------------------------------------------------------+
+
+Man Page
+man inxi
+
+CloudSavvy Article:  https://www.cloudsavvyit.com/8123/the-linux-system-information-tool-inxi/
+Official Repository: https://github.com/smxi/inxi
+</pre>

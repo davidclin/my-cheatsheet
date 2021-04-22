@@ -2315,3 +2315,98 @@ man inxi
 CloudSavvy Article:  https://www.cloudsavvyit.com/8123/the-linux-system-information-tool-inxi/
 Official Repository: https://github.com/smxi/inxi
 </pre>
+
+# How to test cross account access to ECR repository using AWS profile
+<pre>
+1) On a test machine, setup ~/.aws/config with a test cross account profile
+
+Example:
+[profile foobar]
+region = us-east-1
+output = json
+role_arn = arn:aws:iam::123456789012:role/OrganizationAccountAccessRole
+source_profile = default
+
+2) Update the ECR repository permission to allow the cross account ID
+
+Example:
+{
+  "Version": "2008-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCrossAccountPullForVspiritBuildEnv",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": [
+          "arn:aws:iam::$CROSS_ACCOUNT_ID:root"   <--- Replace $CROSS_ACCOUNT_ID with cross account ID
+        ]
+      },
+      "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:BatchDeleteImage",
+                "ecr:BatchGetImage",
+                "ecr:CompleteLayerUpload",
+                "ecr:DescribeImages",
+                "ecr:DescribeRepositories",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:GetRepositoryPolicy",
+                "ecr:InitiateLayerUpload",
+                "ecr:ListImages",
+                "ecr:PutImage",
+                "ecr:UploadLayerPart",
+                "ecr:GetAuthorizationToken"
+        ]
+    }
+  ]
+}
+
+3) On cross account side, attach IAM policy to appropriate principal that mirrors the ECR resource permissions above
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:BatchDeleteImage",
+                "ecr:BatchGetImage",
+                "ecr:CompleteLayerUpload",
+                "ecr:DescribeImages",
+                "ecr:DescribeRepositories",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:GetRepositoryPolicy",
+                "ecr:InitiateLayerUpload",
+                "ecr:ListImages",
+                "ecr:PutImage",
+                "ecr:UploadLayerPart",
+                "ecr:GetAuthorizationToken"
+            ],
+            "Resource": "arn:aws:ecr:us-east-1:123456789012:repository/myawesomerepository"
+        }
+    ]
+}
+
+4) Verify docker is installed on test machine
+
+Example:
+$ docker run hello-world
+
+5) Generate a temporary Docker authentication token from the secondary account
+
+Example:
+$ aws ecr get-login-password --profile foobar --region us-east-1 | docker login --username AWS --password-stdin $SOURCE_ACCOUNT_ID.dkr.ecr.us-east-1.amazonaws.com
+
+Note the --profile option is used, the region (us-east-1) must match and that $SOUCE_ACCOUNT_ID is the account number where the ECR repository lives.
+If any changes are made to the ECR repository permissions (e.g. account number(s) and/or actions added/removed), then you need to generate a new temporary Docker auth token.
+
+6) Perform a test push or pull
+
+Example:
+$ docker pull $ECR_REPO_URI
+
+The ECR repo URI can be obtained from the management console.
+$ docker pull 123456789012.dkr.ecr.us-east-1.amazonaws.com/myawesomeimage:20210415ksg-tothemoon
+
+Resource: (Link)[https://aws.amazon.com/premiumsupport/knowledge-center/secondary-account-access-ecr/]
+</pre>

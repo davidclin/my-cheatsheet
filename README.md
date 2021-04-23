@@ -827,9 +827,9 @@ Resource: https://alvinalexander.com/blog/post/linux-unix/linux-find-command-rec
 # How to find large files
 <pre>
 See disk utilization
-$ df 
-$ df -i
-$ df -h
+$ df              
+$ df -i           list inode information instead of block usage
+$ df -h           human readable
 
 Start from root directory and issue:
 $ sudo du -sh /*

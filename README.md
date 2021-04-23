@@ -841,6 +841,14 @@ Or, install ncdu
 $ sudo apt-get install ncdu
 $ ncdu  <-- Super cool tool
 
+Useful navigation keys:
+o ?                      get list of all commands
+o vim move commands      j|k|l|m
+o g                      show percentage and/or graph
+o s                      sort by size (default)
+o n                      sort by name
+o d                      delete file
+
 Some good places to start are:
 1) /var directory (if this is a Confluence/JIRA server)
 2) /usr/src (if this is an ec2 instance, look for stale linux-aws-headers-x.x.x-xxxx binaries then issue `sudo apt update && sudo apt full-upgrade` followed by `sudo apt autoremove` to clean them out) 

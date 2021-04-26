@@ -2156,6 +2156,28 @@ $ aws s3 cp s3://SOURCE_BUCKET/ s3://DESTINATION_BUCKET/ --acl bucket-owner-full
 }
 </pre>
 
+# AWS IAM Billing Full Access Policy
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "account:*",
+                "aws-portal:*",
+                "pricing:*",
+                "cur:*",
+                "budgets:*",
+                "ce:*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+</pre>
+
 # S3 Update ACL for all objects in folder with bucket-owner-full-control
 <pre>
 Recusively

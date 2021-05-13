@@ -356,10 +356,13 @@ $ curl http://169.254.169.254/latest/user-data
 <pre>
 curl http://169.254.169.254/latest/meta-data/                                                           get list of available objects
 curl http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info/                             get AccountId
+curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/<mac-address>/owner-id/            get AccountId
 curl http://169.254.169.254/latest/meta-data/placement/region/                                          get region
 curl http://169.254.169.254/latest/meta-data/placement/availability-zone/                               get availability zone
 curl http://169.254.169.254/latest/meta-data/instance-id/                                               get instance-id
 curl http://169.254.169.254/latest/meta-data/local-ipv4/                                                get ipv4 address
+curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/<mac-address>/subnet-id/           get subnet-id
+curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/<mac-address>/vpc-id/              get vpc-id
 curl http://169.254.169.254/latest/meta-data/instance-type/                                             get instance type
 curl http://169.254.169.254/latest/meta-data/security-groups                                            get security-groups
 curl http://169.254.169.254/latest/meta-data/iam/info/                                                  get instance profile arn + id
@@ -368,7 +371,7 @@ curl http://169.254.169.254/latest/meta-data/public-keys                        
 curl http://169.254.169.254/latest/user-data                                                            get user-data    
 curl http://169.254.169.254/latest/meta-data/ami-id                                                     get ami-id
 curl http://169.254.169.254/latest/meta-data/local-hostname                                             get local hostname
-curl http://169.254.169.254/latest/meta-data/network/interfaces/macs/02:29:96:8f:6a:2d/subnet-id        get subnet-id
+
 curl http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key                                  get public key
 </pre>
 

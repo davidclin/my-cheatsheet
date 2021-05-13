@@ -355,6 +355,16 @@ $ curl http://169.254.169.254/latest/user-data
 # How to grab detailed metadata of your EC2 instance
 <pre>
 curl http://169.254.169.254/latest/meta-data/                                                           get list of available objects
+curl http://169.254.169.254/latest/meta-data/identity-credentials/ec2/info/                             get AccountId
+curl http://169.254.169.254/latest/meta-data/placement/region/                                          get region
+curl http://169.254.169.254/latest/meta-data/placement/availability-zone/                               get availability zone
+curl http://169.254.169.254/latest/meta-data/instance-id/                                               get instance-id
+curl http://169.254.169.254/latest/meta-data/local-ipv4/                                                get ipv4 address
+curl http://169.254.169.254/latest/meta-data/instance-type/                                             get instance type
+curl http://169.254.169.254/latest/meta-data/security-groups                                            get security-groups
+curl http://169.254.169.254/latest/meta-data/iam/info/                                                  get instance profile arn + id
+curl http://169.254.169.254/latest/meta-data/hostname                                                   get hostname 
+curl http://169.254.169.254/latest/meta-data/public-keys                                                get ssh key name
 curl http://169.254.169.254/latest/user-data                                                            get user-data    
 curl http://169.254.169.254/latest/meta-data/ami-id                                                     get ami-id
 curl http://169.254.169.254/latest/meta-data/local-hostname                                             get local hostname

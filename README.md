@@ -513,6 +513,16 @@ edit the &ltH1&gt header to the name of the server you want to demo
 # AWS IAM References
 [Complete AWS IAM Reference](https://iam.cloudonaut.io/)
 
+# How to run Docker as a non-root user
+<pre>
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+$ newgrp docker
+$ docker run hello-world
+
+For more info: https://docs.docker.com/engine/install/linux-postinstall/
+</pre>
+
 # How to create an alias in Linux
 From your user's home path (just type `cd` + enter), add the following line to .bashrc
 <pre>

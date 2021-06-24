@@ -1249,6 +1249,16 @@ where:
 {"login": "david-lin-bot-user"} 
 </pre>
 
+# Issue with AWS SageMaker video player not showing video properly in the task preview
+<pre>
+Symptoms: 
+o video doesn't play properly in task preview
+o video plays fine locally when downloaded from S3
+
+Resolution:
+Convert video to h.264 and re-upload to S3 
+</pre>
+
 # Generating MD5 Checksum
 Windows 10
 <pre>

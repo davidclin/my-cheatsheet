@@ -85,6 +85,11 @@ https://www.cloudsavvyit.com/9184/use-sql-and-osquery-to-interrogate-your-hardwa
 https://osquery.readthedocs.io/en/stable/
 </pre>
 
+# How to quickly get date and time on Ubuntu from terminal
+<pre>
+date "+%H:%M:%S   %d/%m/%y"        
+</pre>
+        
 # How to open multiple AWS management consoles for different accounts using Okta with AWS SSO and Firefox browser
 <pre>
 General procedure

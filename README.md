@@ -204,6 +204,16 @@ Then, ssh EXAMPLE-NAME-GOES-HERE
 Above is equivalent to ssh -p Port -i IdentityFile User@HostName
 </pre>
 
+# SSH Troubleshooting Tips
+<pre>
+https://phoenixnap.com/kb/ssh-permission-denied-publickey
+https://docs.github.com/en/github/authenticating-to-github/troubleshooting-ssh/error-permission-denied-publickey
+https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+
+Another common issue can occur when copying/pasting pub key to ~/.ssh/authorized_keys.
+Make sure it's a continuous string and there are no hidden carriage returns!        
+</pre>
+        
 # How to use git so it doesn't ask for username/password everytime
 ![Image of SSH Keys](https://github.com/davidclin/cheatsheet/blob/master/images/ghe-ssh-keys.gif)
 <pre>

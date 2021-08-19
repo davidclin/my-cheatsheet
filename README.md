@@ -2488,3 +2488,21 @@ $ docker pull 123456789012.dkr.ecr.us-east-1.amazonaws.com/myawesomeimage:202104
 
 Resource: (Link)[https://aws.amazon.com/premiumsupport/knowledge-center/secondary-account-access-ecr/]
 </pre>
+
+# AWS SSO via CLI Notes
+<pre>
+o Requires AWS v2.0 or higher
+
+o ~/.aws/config File Example
+[default]
+sso_start_url = https://acmecorp-sso.awsapps.com/start
+sso_region = us-east-1
+sso_account_id = {account_number}
+sso_role_name = AdministratorAccess
+region = us-east-1
+output = json
+
+o To login/logout:
+aws sso login
+aws sso logout
+</pre>

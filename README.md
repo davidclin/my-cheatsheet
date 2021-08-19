@@ -2489,7 +2489,7 @@ $ docker pull 123456789012.dkr.ecr.us-east-1.amazonaws.com/myawesomeimage:202104
 Resource: (Link)[https://aws.amazon.com/premiumsupport/knowledge-center/secondary-account-access-ecr/]
 </pre>
 
-# AWS SSO via CLI Notes
+# AWS SSO + AWS CLI 
 <pre>
 o Requires AWS v2.0 or higher
 

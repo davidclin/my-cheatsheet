@@ -2492,9 +2492,14 @@ Resource: (Link)[https://aws.amazon.com/premiumsupport/knowledge-center/secondar
 # AWS SSO + AWS CLI 
 <pre>
 o AWS SSO requires AWS CLI v2.0 or higher
+  To install, open PowerShell window and isssue: 
+  msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
 
 o ~/.aws/config File Example
 [default]
+region = us-east-1
+
+[profile default]
 sso_start_url = https://acmecorp-sso.awsapps.com/start
 sso_region = us-east-1
 sso_account_id = {account_number}

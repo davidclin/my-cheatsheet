@@ -2502,6 +2502,8 @@ sso_role_name = AdministratorAccess
 region = us-east-1
 output = json
 
+Note: The AWS config/credential files are stored under %UserProfile% in Windows (e.g. C:\User\YourName)
+
 o To login/logout:
 aws sso login
 aws sso logout

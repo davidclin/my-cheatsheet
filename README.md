@@ -2491,7 +2491,7 @@ Resource: (Link)[https://aws.amazon.com/premiumsupport/knowledge-center/secondar
 
 # AWS SSO + AWS CLI 
 <pre>
-o Requires AWS v2.0 or higher
+o AWS SSO requires AWS CLI v2.0 or higher
 
 o ~/.aws/config File Example
 [default]

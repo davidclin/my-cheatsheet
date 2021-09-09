@@ -263,6 +263,13 @@ region = us-east-1
 output = json
 </pre>
 
+# How to determine which Availability Zones a particular instance type is supported in
+<pre>
+Example for p3dn.24xlarge:
+aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=instance-type,Values=p3dn.24xlarge --region us-east-1
+
+</pre>
+
 # How to quickly determine the IAM role attached to a Jenkins worker if you don't have access to the Jenkins master
 <pre>
 $ curl http://169.254.169.254/latest/meta-data/iam/info ; echo

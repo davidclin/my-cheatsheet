@@ -2372,6 +2372,21 @@ $ aws s3 ls | cut -c 20        This displays the first 20 characters of each lin
 This approach can also be used for other simple output.
 </pre>
 
+# How to prevent creation of AWS IAM users with email based usernames
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "iam:CreateUser",
+            "Resource": "arn:aws:iam::*:user/*@*"
+        }
+    ]
+}
+</pre>
+
+
 # How to use inxi to get system info
 <pre>
 Installation

@@ -2535,3 +2535,21 @@ o To login/logout:
 aws sso login
 aws sso logout
 </pre>
+
+# IAM Policy Allowing IAM User to PassRole to an AWS Service
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole",
+                "iam:GetRole"
+            ],
+            "Resource": "arn:aws:iam::123456789012:role/role_name_goes_here"
+        }
+    ]
+}
+</pre>

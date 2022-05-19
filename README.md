@@ -484,6 +484,7 @@ do
   \# Loop through the USER list
   echo $i
   echo <shell_cmd> >> results.txt
+done
 </pre>
 
 # How to update SSL certificate on individual instances

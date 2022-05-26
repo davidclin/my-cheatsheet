@@ -894,6 +894,7 @@ $ du -cksh .[!.]* * |sort -h
 
 Or, install ncdu
 $ sudo apt-get install ncdu
+$ cd /  (navigate to root directory so you can search entire drive)
 $ ncdu  <-- Super cool tool
 
 Useful navigation keys:

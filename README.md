@@ -321,6 +321,15 @@ Note: Permission to allow s3:ListBucket against resource * may be needed
 
 </pre>
 
+# How to set AWS environment variables
+<pre>
+export AWS_ACCESS_KEY_ID=xxx
+export AWS_SECRET_ACCESS_KEY=xxx
+export AWS_DEFAULT_REGION=xxx
+
+Verify with:
+aws sts get-caller-identity
+</pre>
 # How to assume IAM role using AWS CLI
 <pre>
 unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
@@ -352,7 +361,7 @@ aws s3api get-object-acl --bucket BUCKETNAME --key SomeS3Prefix/random_file_v001
 <pre>
 Cryptic error: fatal error: An error occurred (403) when calling the HeadObject operation: Forbidden
 
-Lessons Learned:
+Lesson Learned:
 
 o Use the --debug option (AWS support can use the IDs to dig into logs on the backend)
 

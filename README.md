@@ -263,7 +263,7 @@ region = us-east-1
 output = json
 </pre>
 
-# How to determine which Availability Zones a particular instance type is supported in
+# How to determine which Availability Zones a particular instance type is supported in | Keyword: ICE 
 <pre>
 Example for p3dn.24xlarge:
 aws ec2 describe-instance-type-offerings --location-type availability-zone --filters Name=instance-type,Values=p3dn.24xlarge --region us-east-1

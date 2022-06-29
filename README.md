@@ -45,13 +45,13 @@ LICEcap - https://www.cockos.com/licecap/
 
 # How to create Chrome group tabs
 <pre>
-Go to chrome://flags and then use the search bar to find the “tab-groups-save” option.
-Alongside the option you’ll see a drop down menu to enable or disable to feature. 
-Enable it to use it. 
-After that, click “Relaunch” which will save the flag changes and restart the browser. 
-After that the Tab Groups Save option should be enabled when you right-click on the tab group name.
-Saved groups will appear on the bookmarks panel.
-At this point, you can just open new a chrome window, click on group name on the bookmark panel and the group opens in new window.
+1) Go to chrome://flags and then use the search bar to find the “tab-groups-save” option.
+2) Alongside the option you’ll see a drop down menu to enable or disable to feature. 
+3) Enable it to use it. 
+4) After that, click “Relaunch” which will save the flag changes and restart the browser. 
+5) After that the Tab Groups Save option should be enabled when you right-click on the tab group name.
+6) Saved groups will appear on the bookmarks panel.
+7) At this point, you can just open new a chrome window, click on group name on the bookmark panel and the group opens in new window.
 </pre>
 
 # How to use osquery (interactive mode)

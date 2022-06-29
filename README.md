@@ -23,7 +23,6 @@ local SEPARATOR_2=$SEPARATOR_FORMAT_2
 local SEPARATOR_3=$SEPARATOR_FORMAT_3
 </pre>
 
-
 To change the color of text to TOXIC_GREEN_BOLD, add the following lines after the "dell" section and replace YOUR_HOSTNAME_GOES_HERE with your hostname:
 <pre>
 if [ "$HOSTNAME" = YOUR_HOSTNAME_GOES_HERE ]; then
@@ -42,6 +41,17 @@ Resources<br>
 # How to create animated screen captures in GIF
 <pre>
 LICEcap - https://www.cockos.com/licecap/
+</pre>
+
+# How to create Chrome group tabs
+<pre>
+Go to chrome://flags and then use the search bar to find the “tab-groups-save” option.
+Alongside the option you’ll see a drop down menu to enable or disable to feature. 
+Enable it to use it. 
+After that, click “Relaunch” which will save the flag changes and restart the browser. 
+After that the Tab Groups Save option should be enabled when you right-click on the tab group name.
+Saved groups will appear on the bookmarks panel.
+At this point, you can just open new a chrome window, click on group name on the bookmark panel and the group opens in new window.
 </pre>
 
 # How to use osquery (interactive mode)

@@ -575,7 +575,7 @@ Don't forget to exit your shell and login back in for the alias to take effect.
 # How to connect to MySQL in Linux
 <pre>
 $ sudo apt install mysql-client-core-5.7
-$ mysql -u USERNAME -h IPADDRESS -p DATABASENAME
+$ mysql -u $USERNAME -h $HOSTNAME -P $PORT_NUMBER -p 
 $ cntl+d (to break out)
 </pre>
 [Resource](https://www.cyberciti.biz/faq/how-to-connect-to-my-mysql-database-server-using-command-line-and-php/)

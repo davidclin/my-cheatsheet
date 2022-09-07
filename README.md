@@ -2591,7 +2591,7 @@ DenyECService
       "Condition": {
         "ArnEquals": {
           "aws:PrincipalARN": [
-            "arn:aws:iam::<ACCOUNT_NUMBER_GOES_HERE>:*"
+            "arn:aws:iam::123456789012:*"
           ]
         }
       }

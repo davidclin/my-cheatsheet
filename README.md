@@ -2599,3 +2599,22 @@ DenyECService
   ]
 }
 </pre>
+
+DenySagemakerService
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Statement1",
+      "Effect": "Deny",
+      "Action": [
+        "sagemaker:*"
+      ],
+      "Resource": [
+        "*"
+      ]
+    }
+  ]
+}
+</pre>

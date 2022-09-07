@@ -2576,3 +2576,26 @@ aws sso logout
     ]
 }
 </pre>
+
+# AWS Service Control Policy (SCP) Examples
+
+DenyECService
+<pre>
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "NotAction": "ec2:DescribeInstances",
+      "Resource": "arn:aws:ec2:*:*:instance/*",
+      "Condition": {
+        "ArnEquals": {
+          "aws:PrincipalARN": [
+            "arn:aws:iam::<ACCOUNT_NUMBER_GOES_HERE>:*"
+          ]
+        }
+      }
+    }
+  ]
+}
+</pre>

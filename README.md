@@ -2557,6 +2557,10 @@ Note: The AWS config/credential files are stored under %UserProfile% in Windows 
 o To login/logout:
 aws sso login
 aws sso logout
+
+Note: 
+To configure an AWS SSO profile dynamically, issue aws configure sso.
+To configure a group of AWS SSO profiles manually, run the shell script named sso_profiles.sh in your scripts repo and save over ~/.aws/config    
 </pre>
 
 # IAM Policy Allowing IAM User to PassRole to an AWS Service

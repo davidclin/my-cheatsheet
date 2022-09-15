@@ -2560,7 +2560,8 @@ aws sso logout
 
 Note: 
 To configure an AWS SSO profile dynamically, issue aws configure sso.
-To configure a group of AWS SSO profiles manually, run the shell script named sso_profiles.sh in your scripts repo and save over ~/.aws/config    
+To configure a group of AWS SSO profiles manually, run the shell script named sso_profiles.sh in your scripts repo and save over ~/.aws/config.
+To refresh your token seesion for a given profile, issue aws sso login --profile <profile_name>.
 </pre>
 
 # IAM Policy Allowing IAM User to PassRole to an AWS Service

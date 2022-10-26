@@ -291,6 +291,11 @@ $ curl http://169.254.169.254/latest/meta-data/iam/info ; echo
 }
 </pre>
 
+# How to update AWS username using AWS CLI
+<pre>
+aws iam update-user --user-name Bob --new-user-name Robert
+</pre>
+
 # How to quickly determine the identity of an AWS IAM user or role using the AWS CLI in addition to getting the Canonical ID of account
 <pre>
 $ aws sts get-caller-identity

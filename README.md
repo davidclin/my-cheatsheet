@@ -1581,6 +1581,54 @@ aws s3 ls s3://awsexamplebucket --request-payer requester
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 
+# How to configure basic read/write access to S3 bucket prefix for IAM user
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3ReadWriteAccess",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::ACCOUNT_NUMBER:user/USERNAME"
+            },
+            "Action": [
+                "s3:Get*",
+                "s3:List*",
+                "s3:Put*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::BUCKETNAME/PREFIX*",
+                "arn:aws:s3:::BUCKETNAME"
+            ]
+        }
+    ]
+}
+</pre>
+
+If the IAM user is from a cross-account, then that user will require an IAM policy as well
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3ReadWriteAccess",
+            "Effect": "Allow",
+            "Action": [
+                "s3:Get*",
+                "s3:List*",
+                "s3:Put*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::BUCKETNAME/PREFIX",
+                "arn:aws:s3:::BUCKETNAME"
+            ]
+        }
+    ]
+}
+</pre>
+
+
 # How to enforce cross account s3:Put* access to S3 bucket with --acl bucket-owner-full-control set
 <pre>
 {

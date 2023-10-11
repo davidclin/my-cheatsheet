@@ -1602,8 +1602,42 @@ aws s3 ls s3://awsexamplebucket --request-payer requester
 }
 </pre>
 
+
+
+
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
+
+# Basic template
+<pre>
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Statement1",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "arn:aws:iam::929292782238:user/david
+                ]
+            },
+            "Action": [
+                "s3:PutObject",
+                "s3:PutObjectAcl",
+                "s3:GetObject",
+                "s3:GetObjectAcl",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket_name_goes_here/*",
+                "arn:aws:s3:::bucket_name_goes_here"
+            ]
+        }
+    ]
+}
+
+  
+</pre>
 
 # How to configure basic read/write access to S3 bucket prefix for IAM user
 <pre>

@@ -252,6 +252,23 @@ From cross account using an IAM role
 aws secretsmanager get-secret-value --secret-id KEY_NAME_GOES_HERE --version-stage AWSCURRENT --profile IAM_PROFILE_GOES_HERE
 </pre>
 
+# AWS CloudWatch Agent
+How to see status
+<pre>
+systemctl status amazon-cloudwatch-agent.service
+</pre>
+Example output:
+<pre>
+mazon-cloudwatch-agent.service - Amazon CloudWatch Agent
+   Loaded: loaded (/etc/systemd/system/amazon-cloudwatch-agent.service; enabled; vendor preset: disabled)
+   Active: active (running) since Fri 2023-06-09 06:19:10 UTC; 4 months 9 days ago
+ Main PID: 2116 (amazon-cloudwat)
+    Tasks: 11
+   Memory: 26.2M
+   CGroup: /system.slice/amazon-cloudwatch-agent.service
+           └─2116 /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent -config /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.toml -envconfig /opt/aws/amazon-cloudwatch-agent/etc/env-config.json -pidfile /opt/aws/amazon-cloudwat...
+</pre>
+
 # AWS CLI Config
 <pre>
 ~/.aws/config

@@ -254,9 +254,9 @@ aws secretsmanager get-secret-value --secret-id KEY_NAME_GOES_HERE --version-sta
 
 # AWS CloudWatch Agent
 How to see status
-<pre>
+```
 systemctl status amazon-cloudwatch-agent.service
-</pre>
+```
 Example output:
 <pre>
 mazon-cloudwatch-agent.service - Amazon CloudWatch Agent

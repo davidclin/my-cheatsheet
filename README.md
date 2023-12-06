@@ -354,14 +354,15 @@ Note: Permission to allow s3:ListBucket against resource * may be needed
 </pre>
 
 # How to set AWS environment variables
-<pre>
+```
 export AWS_ACCESS_KEY_ID=xxx
 export AWS_SECRET_ACCESS_KEY=xxx
 export AWS_DEFAULT_REGION=xxx
 
 Verify with:
 aws sts get-caller-identity
-</pre>
+```
+
 # How to assume IAM role using AWS CLI
 <pre>
 unset AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN

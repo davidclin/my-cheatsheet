@@ -1626,7 +1626,7 @@ aws s3 ls s3://awsexamplebucket --request-payer requester
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 
 # Basic template
-<pre>
+```
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -1652,9 +1652,8 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
         }
     ]
 }
-
-  
-</pre>
+```
+ 
 
 # How to configure basic read/write access to S3 bucket prefix for IAM user
 <pre>

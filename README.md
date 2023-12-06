@@ -1635,7 +1635,9 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
             "Effect": "Allow",
             "Principal": {
                 "AWS": [
-                    "arn:aws:iam::929292782238:user/david
+                    "arn:aws:iam::account_number:user/david",                  # IAM user
+                    "arn:aws:iam::account_number:root",                        # AWS account
+                    "arn:aws:iam::account_number:role/role_name_goes_here"     # IAM role
                 ]
             },
             "Action": [

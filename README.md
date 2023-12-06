@@ -569,6 +569,13 @@ sudo vim /var/www/html/index.nginx-debian.html
 edit the &ltH1&gt header to the name of the server you want to demo
 </pre>
 
+# Reset your AWS access key environment variables
+```
+export AWS_ACCESS_KEY_ID=""
+export AWS_SECRET_ACCESS_KEY=""
+export AWS_SESSION_TOKEN=""
+```
+
 # AWS EC2 Resources
 [EC2Instances.info](https://ec2instances.info/?min_memory=8&min_vcpus=4&min_storage=20&selected=m5a.2xlarge,i3en.12xlarge,i3en.metal,t2.micro)
 <br>
@@ -1625,7 +1632,7 @@ aws s3 ls s3://awsexamplebucket --request-payer requester
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 
-# Basic template
+# Basic template for IAM identities
 ```
 {
     "Version": "2012-10-17",
@@ -1635,9 +1642,9 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
             "Effect": "Allow",
             "Principal": {
                 "AWS": [
-                    "arn:aws:iam::account_number:user/david",                  # IAM user
-                    "arn:aws:iam::account_number:root",                        # AWS account
-                    "arn:aws:iam::account_number:role/role_name_goes_here"     # IAM role
+                    "arn:aws:iam::account_number:user/david",                          # IAM user
+                    "arn:aws:iam::account_number:root",                                # AWS account
+                    "arn:aws:iam::account_number:role/role_name_goes_here",            # IAM role
                 ]
             },
             "Action": [
@@ -1655,7 +1662,36 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
     ]
 }
 ```
+
+# Basic template for AWS SSO UserIds
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Deny All Users except those permitted",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::bucket_name/*",
+                "arn:aws:s3:::bucket_name"
+            ],
+            "Condition": {
+                "StringNotLike": {
+                    "aws:userid": [
+                        "AROA5QXRKRKPBI4HCTKFM:SSOUsername",     # Example SSO user
+                        "AIDAJR6UPPDJO7O5IJNHM",                 # IAM user?
+                        "AROAJBWNRJTSH4UD7N2LA:CloudCustodian"   # IAM role?
+                    ]
+                }
+            }
+        }
+    ]
+}
+
  
+```
 
 # How to configure basic read/write access to S3 bucket prefix for IAM user
 <pre>

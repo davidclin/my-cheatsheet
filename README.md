@@ -1633,6 +1633,37 @@ aws s3 ls s3://awsexamplebucket --request-payer requester
 # S3 Bucket Policy Examples
 https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#example-bucket-policies-use-case-8
 
+```
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DenyS3WriteAccessExceptAllowedList",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": [
+                "s3:PutObject",
+                "s3:DeleteObjectVersion",
+                "s3:PutObjectVersionAcl",
+                "s3:DeleteObject",
+                "s3:PutObjectAcl"
+            ],
+            "Resource": [
+                "arn:aws:s3:::BUCKET-NAME/*",
+                "arn:aws:s3:::BUCKET-NAME"
+            ],
+            "Condition": {
+                "StringNotLike": {
+                    "aws:userId": [
+                        "AIDA5QXRKRKPHWWQUPP4V"
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
 # Basic template for IAM identities
 ```
 {

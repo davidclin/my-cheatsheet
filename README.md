@@ -54,6 +54,36 @@ LICEcap - https://www.cockos.com/licecap/
 7) At this point, you can just open new a chrome window, click on group name on the bookmark panel and the group opens in new window.
 </pre>
 
+# How to customize Firefox container tabs
+Modify the file named containers.json. <br>
+Example: C:\Users\David Lin\AppData\Roaming\Mozilla\Firefox\Profiles\4x6vyw2w.default-release
+<pre>
+{"version":5,"lastUserContextId":104,"identities":[
+{
+  "_comment": "Rules to keep in mind",
+  "message": "ContextIds must be unique. Every line should end in a comma except last 2 lines. Use ContextIds in the 9xx range for line separators. Lines with public set to false are thrown to bottom of list. Use Perplexity to lint this file."
+},
+{"userContextId":1,"public":true,"icon":"circle","color":"green","name":"TRI-NA | xxxxxxxxxxxx"},
+{"userContextId":2,"public":true,"icon":"circle","color":"blue","name":"Shared Services | xxxxxxxxxxxx"},
+{"userContextId":3,"public":true,"icon":"circle","color":"yellow","name":"Vault | xxxxxxxxxxxx"},
+{"userContextId":4,"public":true,"icon":"circle","color":"blue","name":"Audit | xxxxxxxxxxxxx"},
+{"userContextId":5,"public":true,"icon":"circle","color":"blue","name":"ie-security-dev | xxxxxxxxxxxx"},
+{"userContextId":900,"public":true,"icon":"fence","color":"red","name":"========================="},
+{"userContextId":20,"public":true,"icon":"fingerprint","color":"blue","name":"AWS Account 1"},
+{"userContextId":21,"public":true,"icon":"circle","color":"blue","name":"AWS Account 2"},
+{"userContextId":901,"public":true,"icon":"fence","color":"red","name":"========================="},
+{"userContextId":31,"public":true,"icon":"circle","color":"yellow","name":"ml-sandbox | xxxxxxxxxxxx"},
+{"userContextId":32,"public":true,"icon":"circle","color":"blue","name":"material-admin | xxxxxxxxxxxx"},
+{"userContextId":33,"public":true,"icon":"circle","color":"blue","name":"materials-prod | xxxxxxxxxxxx"},
+{"userContextId":34,"public":true,"icon":"circle","color":"blue","name":"amdd-sandbox-1907 | xxxxxxxxxxxx"},
+{"userContextId":902,"public":true,"icon":"fence","color":"red","name":"========================="},
+{"userContextId":41,"public":true,"icon":"fingerprint","color":"blue","name":"tars-admin | xxxxxxxxxxxx"},
+{"userContextId":42,"public":true,"icon":"fingerprint","color":"blue","name":"odta-development | xxxxxxxxxxxx"},
+{"userContextId":45,"public":false,"icon":"","color":"","name":"userContextIdInternal.thumbnail"},
+{"userContextId":4294967295,"public":false,"icon":"","color":"","name":"userContextIdInternal.webextStorageLocal"}
+]}
+</pre>
+
 # How to use osquery (interactive mode)
 <pre>
 ============================

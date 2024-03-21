@@ -43,7 +43,7 @@ Resources<br>
 LICEcap - https://www.cockos.com/licecap/
 </pre>
 
-# How to create collapsable text in Markdown
+# How to create collapsible text in Markdown
 ![image](https://github.com/davidclin/cheatsheet/assets/6853545/42845c58-7642-4b01-9fa3-c05d2c17fd45)
 
 

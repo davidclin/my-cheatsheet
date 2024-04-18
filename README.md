@@ -46,6 +46,16 @@ LICEcap - https://www.cockos.com/licecap/
 # How to create collapsible text in Markdown
 ![image](https://github.com/davidclin/cheatsheet/assets/6853545/df6ac3b0-ad24-4af1-af8b-bfeb84c64500)
 
+```
+<details>
+<summary>Example of Collapsible Text</summary>
+
+\```  <---- Remove the escape character after copying
+Your content goes here
+\```  <---- Remove the escape character after copying
+</details>
+```
+
 
 # How to create Chrome group tabs
 <pre>
@@ -57,6 +67,8 @@ LICEcap - https://www.cockos.com/licecap/
 6) Saved groups will appear on the bookmarks panel.
 7) At this point, you can just open new a chrome window, click on group name on the bookmark panel and the group opens in new window.
 </pre>
+
+
 
 # How to customize Firefox container tabs
 Modify the file named containers.json. <br>

@@ -55,6 +55,17 @@ Your content goes here
 \```  <---- Remove the escape character after copying
 </details>
 ```
+# How to use Powershell to create files
+```
+# Create a new text file
+New-Item -Path "C:\path\to\your\file.txt" -ItemType "file"
+
+# Create a new text file with content
+Set-Content -Path "C:\path\to\your\file.txt" -Value "Your content here"
+
+# Append content to an existing text file
+Add-Content -Path "C:\path\to\your\file.txt" -Value "Additional content"
+```
 
 
 # How to create Chrome group tabs

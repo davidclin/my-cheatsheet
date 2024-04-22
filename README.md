@@ -12,7 +12,7 @@ git push
 ## Other related commands
 <pre>
 git switch   (modern)                          replaces checkout command to switch between branches
-git switch -c <branch_name>                    creates new branch and switches to it
+git switch -c branch_name                      creates new branch and switches to it
 git checkout (old)                             
 git checkout -- [., file_name]                 resets non-staged changes back to the last commit
 </pre>

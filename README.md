@@ -25,3 +25,15 @@ git config user.email         shows email address
 git remote -v                 shows what origin (remote) is set to
 git remote set-url origin git@github.com:davidclin/cheatsheet.git
 </pre>
+
+## How to setup your local ssh key
+cd ~/.ssh
+touch david
+add your ssh secret file to "david"
+chmod 600 david
+append following to ~/.bashrc or ~/.zshrc
+
+```
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/david
+```

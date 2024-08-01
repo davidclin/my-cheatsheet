@@ -985,10 +985,12 @@ $ df -h           human readable
 
 Start from root directory and issue:
 $ sudo du -sh /*
-
+  
 To show hidden files, 
 $ du -cksh .[!.]* * |sort -h
 
+Change into suspect directory and repeat command until you find source of large files.
+  
 Or, install ncdu
 $ sudo apt-get install ncdu
 $ cd /  (navigate to root directory so you can search entire drive)
@@ -1007,8 +1009,26 @@ Some good places to start are:
 2) /usr/src (if this is an ec2 instance, look for stale linux-aws-headers-x.x.x-xxxx binaries then issue `sudo apt update && sudo apt full-upgrade` followed by `sudo apt autoremove` to clean them out) 
 2.1) alternatively, you can use --> sudo apt-get -y autoremove && sudo apt-get -y autoclean  OR sudo apt autoremove --purge 
 2.notes) https://askubuntu.com/questions/1141630/why-is-usr-src-linux-aws-headers-growing
+3) /var/log/journal is directory that can often get full
 
-Change into suspect directory and repeat command until you find source of large files.
+### Check Current Disk Usage ###  
+journalctl --disk-usage  
+
+### Vacuum Old Logs ###  
+sudo journalctl --vacuum-size=100M  
+sudo journalctl --vacuum-time=10d  
+
+### Configure Journald Settings ###  
+sudo vim /etc/systemd/journald.conf  
+
+[Journal]   
+SystemMaxUse=100M  
+SystemMaxFileSize=50M  
+MaxRetentionSec=1month  
+
+### Restart the journald service to apply the changes ###  
+sudo systemctl restart systemd-journald
+
 
 On rare occassions, Confluence may hold onto large files that have been deleted.
 You can verify by issuing:

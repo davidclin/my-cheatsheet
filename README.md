@@ -1553,8 +1553,7 @@ all input data buckets will have to have CORS enabled starting Feb. 10th, 2021.
       "Sid": "ListAllMyBucketsHeadBucket",
       "Effect": "Allow",
       "Action": [
-        "s3:ListAllMyBuckets",
-        "s3:HeadBucket"
+        "s3:ListAllMyBuckets"
       ],
       "Resource": "*"
     }

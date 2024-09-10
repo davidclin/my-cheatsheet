@@ -1542,7 +1542,8 @@ all input data buckets will have to have CORS enabled starting Feb. 10th, 2021.
         "s3:ListBucket",
         "s3:GetObject",
         "s3:PutObject",
-        "s3:DeleteObject"
+        "s3:DeleteObject",
+        "s3:GetBucketLocation"  <-- used in order to see AWS Athena query results
       ],
       "Resource": [
         "arn:aws:s3:::bucket_name",

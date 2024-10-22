@@ -67,6 +67,12 @@ Set-Content -Path "C:\path\to\your\file.txt" -Value "Your content here"
 Add-Content -Path "C:\path\to\your\file.txt" -Value "Additional content"
 ```
 
+# How to get a HAR capture
+![image](https://github.com/user-attachments/assets/88a29b2b-e64e-4f34-85a3-c2901477e5a6)
+
+Source: https://toolbox.googleapps.com/apps/har_analyzer/  
+Tip: Don't forget to turn on "Persist logs"/"Preserve log"
+
 
 # How to create Chrome group tabs
 <pre>

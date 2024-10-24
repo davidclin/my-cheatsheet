@@ -1759,7 +1759,8 @@ https://docs.aws.amazon.com/AmazonS3/latest/dev/example-bucket-policies.html#exa
                 "AWS": [
                     "arn:aws:iam::account_number:user/david",                          # IAM user
                     "arn:aws:iam::account_number:root",                                # AWS account
-                    "arn:aws:iam::account_number:role/role_name_goes_here",            # IAM role
+                    "arn:aws:iam::account_number:role/role_name_goes_here",            # IAM role,
+                    "arn:aws:iam::account_number:role/aws-reserved/sso.amazonaws.com/AWSReservedSSO_** # SSO Permission Set where ** can be obtained from aws sts-get-caller identity
                 ]
             },
             "Action": [
